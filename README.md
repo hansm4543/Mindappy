@@ -33,5 +33,5 @@ Make a Social and Emotional learning application
 
 
 
-## Some images taken from:
-* https://www.flaticon.com/
+## Some images/icons taken from:
+* https://www.npmjs.com/package/ionicons

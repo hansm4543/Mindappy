@@ -1,37 +1,26 @@
 import * as React from "react";
-import { Button, View, Image, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomTabNavigator from "./src/Navigation/BottomTabNavigator";
-
-function StartScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Image
-        source={{ uri: "https://via.placeholder.com/208x208/ccc" }}
-        style={{ width: 208, height: 208 }}
-      />
-      <Text>{"\n"}</Text>
-      <Button
-        title="Enter The Application"
-        onPress={() => navigation.navigate("Bottomtab")}
-      />
-    </View>
-  );
-}
+import StartScreen from "./src/StartScreen";
+import QuestionScreen from "./src/QuestionScreen";
 
 const Stack = createNativeStackNavigator();
 
 function App() {
+  let isFirstStartUp = false;
+  const InitialRoute = isFirstStartUp ? "QuestionScreen" : "Bottomtab";
+
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="StartScreen"
+        initialRouteName={InitialRoute}
         screenOptions={({ route }) => ({
           headerShown: false,
         })}
       >
         <Stack.Screen name="StartScreen" component={StartScreen} />
+        <Stack.Screen name="QuestionScreen" component={QuestionScreen} />
         <Stack.Screen
           name="Bottomtab"
           component={BottomTabNavigator}
