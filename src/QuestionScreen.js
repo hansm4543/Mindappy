@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Button, View, Image, Text } from "react-native";
-import DropDownPicker from "react-native-dropdown-picker";
-import SingleQuestion from "./SingleQuestion";
+import { Button, View, Image, Text, StyleSheet } from "react-native";
+import { Dropdown } from "react-native-element-dropdown";
 
 function StartScreen({ navigation, route }) {
-  const storeData = route?.params?.storeData;
-  const getData = route?.params?.getData;
-  const [count, setCount] = useState({ boolean: false });
+  // const storeData = route?.params?.storeData;
+  // const getData = route?.params?.getData;
+  // const [count, setCount] = useState({ boolean: false });
 
-  const getDataInformation = async () => {
-    let value = await getData();
-    console.log(value);
-    setCount(value);
-  };
+  // const getDataInformation = async () => {
+  //   let value = await getData();
+  //   console.log(value);
+  //   setCount(value);
+  // };
 
   const questionsList = [
     "I recognize what I am feeling",
@@ -22,67 +21,37 @@ function StartScreen({ navigation, route }) {
     "I struggle to start working or studying without procrastinating",
   ];
 
-  const [open, setOpen] = useState([false, false, false, false, false]);
-  const [value, setValue] = useState([null, null, null, null, null]);
-  const [items, setItems] = useState([
-    [
-      { label: "Apple", value: "apple" },
-      { label: "Banana", value: "banana" },
-    ],
-    [
-      { label: "Apple", value: "apple" },
-      { label: "Banana", value: "banana" },
-    ],
-    [
-      { label: "Apple", value: "apple" },
-      { label: "Banana", value: "banana" },
-    ],
-    [
-      { label: "Apple", value: "apple" },
-      { label: "Banana", value: "banana" },
-    ],
-    [
-      { label: "Apple", value: "apple" },
-      { label: "Banana", value: "banana" },
-    ],
-  ]);
+  const answers = [
+    { label: "Never", value: "never" },
+    { label: "Sometimes", value: "sometimes" },
+    { label: "Always", value: "always" },
+  ];
 
-  useEffect(() => {
-    console.log(open);
-    console.log(value);
-    console.log(items);
-  }, [open]);
+  const data = [
+    { label: "Item 1", value: "1" },
+    { label: "Item 2", value: "2" },
+    { label: "Item 3", value: "3" },
+    { label: "Item 4", value: "4" },
+    { label: "Item 5", value: "5" },
+    { label: "Item 6", value: "6" },
+    { label: "Item 7", value: "7" },
+    { label: "Item 8", value: "8" },
+  ];
 
-  console.log(open);
+  const [valuearr, setValue] = useState([null, null, null, null, null]);
+  const [isFocus, setIsFocus] = useState([false, false, false, false, false]);
 
-  const setOpenHandler = (i) => (e) => {
-    console.log(i);
-    console.log(e);
-
-    const newObject = [...open];
-    newObject[i] = e;
-    console.log(newObject);
-    setOpen(newObject);
+  console.log(valuearr);
+  const setValueHandler = (value, i) => {
+    const newArr = [...valuearr];
+    newArr[i] = value;
+    setValue(newArr);
   };
 
-  const setValueHandler = (i) => (e) => {
-    console.log(i);
-    console.log(e);
-
-    const newObject = [...value];
-    newObject[i] = e;
-    console.log(newObject);
-    setValue(newObject);
-  };
-
-  const setItemsHandler = (i) => (e) => {
-    console.log(i);
-    console.log(e);
-
-    // const newObject = [...value];
-    // newObject[i] = e;
-    // console.log(newObject);
-    // //setOpen(newObject);
+  const setFocusHandler = (value, i) => {
+    const newArr = [...isFocus];
+    newArr[i] = value;
+    setIsFocus(newArr);
   };
 
   return (
@@ -95,17 +64,23 @@ function StartScreen({ navigation, route }) {
       }}
     >
       {questionsList.map((questionData, i) => (
-        <div key={i}>
-          <SingleQuestion
-            question={questionData}
-            open={open[i]}
-            value={value[i]}
-            items={items[i]}
-            setOpen={setOpenHandler(i)}
-            setValue={setValueHandler(i)}
-            setItems={setItemsHandler(i)}
-          ></SingleQuestion>
-        </div>
+        <View style={styles.container}>
+          <Text>{questionData}</Text>
+          <Dropdown
+            style={[styles.dropdown, isFocus && { borderColor: "blue" }]}
+            placeholderStyle={styles.placeholderStyle}
+            selectedTextStyle={styles.selectedTextStyle}
+            data={data}
+            maxHeight={200}
+            labelField="label"
+            valueField="value"
+            placeholder={"..."}
+            value={valuearr[i]}
+            onChange={(item) => {
+              setValueHandler(item.value, i);
+            }}
+          />
+        </View>
       ))}
 
       <Text>{"\n"}</Text>
@@ -120,3 +95,43 @@ function StartScreen({ navigation, route }) {
 }
 
 export default StartScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+  },
+  dropdown: {
+    height: 50,
+    width: 300,
+    borderColor: "gray",
+    borderWidth: 0.5,
+    borderRadius: 8,
+    paddingHorizontal: 8,
+  },
+  icon: {
+    marginRight: 5,
+  },
+  label: {
+    position: "absolute",
+    backgroundColor: "white",
+    left: 22,
+    top: 8,
+    zIndex: 999,
+    paddingHorizontal: 8,
+    fontSize: 14,
+  },
+  placeholderStyle: {
+    fontSize: 16,
+  },
+  selectedTextStyle: {
+    fontSize: 16,
+  },
+  iconStyle: {
+    width: 20,
+    height: 20,
+  },
+  inputSearchStyle: {
+    height: 40,
+    fontSize: 16,
+  },
+});
