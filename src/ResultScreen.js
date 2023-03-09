@@ -25,6 +25,13 @@ const ResultScreen = ({ navigation, route }) => {
         onPress={() => storeData("@answered", { answered: false })}
       />  */}
       <Button title="Log Results" onPress={() => getDataInformation()} />
+
+      <Button
+        title="Take assessment again"
+        onPress={() => navigation.navigate("QuestionScreen")}
+      />
+
+      <Button title="Go back" onPress={() => navigation.navigate("HomeTab")} />
     </View>
   );
 };

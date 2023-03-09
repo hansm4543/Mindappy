@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View, Button } from "react-native";
 import React from "react";
 
-const Home = ({ navigation, route }) => {
-  //console.log(route);
+const ExerciseScreen = ({ navigation, route }) => {
   return (
     <View
       style={{
@@ -12,16 +11,13 @@ const Home = ({ navigation, route }) => {
         backgroundColor: "lightblue",
       }}
     >
-      <Text>Home Tab</Text>
+      <Text>ExerciseScreen Tab</Text>
 
-      <Button
-        title="See Results"
-        onPress={() => navigation.navigate("ResultScreen")}
-      />
+      <Button title="Go back" onPress={() => navigation.navigate("HomeTab")} />
     </View>
   );
 };
 
-export default Home;
+export default ExerciseScreen;
 
 const styles = StyleSheet.create({});

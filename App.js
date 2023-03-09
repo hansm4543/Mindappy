@@ -7,6 +7,7 @@ import BottomTabNavigator from "./src/Navigation/BottomTabNavigator";
 import StartScreen from "./src/StartScreen";
 import QuestionScreen from "./src/QuestionScreen";
 import ResultScreen from "./src/ResultScreen";
+import ExerciseScreen from "./src/ExerciseScreen";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Stack = createNativeStackNavigator();
@@ -53,7 +54,9 @@ function App() {
       .catch(console.error);
   }, [loading]); // Only re-run the effect if [in brackets] changes
 
-  let isFirstStartUp = count.answered ? true : false;
+  //top one is correct to get into question screen
+  //let isFirstStartUp = count.answered ? true : false;
+  let isFirstStartUp = count.answered ? false : true;
   const InitialRoute = isFirstStartUp ? "Bottomtab" : "QuestionScreen";
 
   if (loading) {
@@ -77,6 +80,11 @@ function App() {
         })}
       >
         <Stack.Screen name="StartScreen" component={StartScreen} />
+        <Stack.Screen
+          name="ExerciseScreen"
+          component={ExerciseScreen}
+          initialParams={{ storeData, getData }}
+        />
         <Stack.Screen
           name="QuestionScreen"
           component={QuestionScreen}
