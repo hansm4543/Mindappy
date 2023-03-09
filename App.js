@@ -57,7 +57,7 @@ function App() {
   //top one is correct to get into question screen
   //let isFirstStartUp = count.answered ? true : false;
   let isFirstStartUp = count.answered ? false : true;
-  const InitialRoute = isFirstStartUp ? "Bottomtab" : "QuestionScreen";
+  const InitialRoute = isFirstStartUp ? "Bottomtab" : "StartScreen";
 
   if (loading) {
     return (
@@ -100,7 +100,6 @@ function App() {
           name="Bottomtab"
           component={BottomTabNavigator}
           options={{ headerShown: false }}
-          //initialParams={{ storeData, getData }}
         />
       </Stack.Navigator>
     </NavigationContainer>

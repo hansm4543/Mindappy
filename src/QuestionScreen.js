@@ -91,8 +91,8 @@ function StartScreen({ navigation, route }) {
           <Text style={styles.textError}>{error}</Text>
 
           <Button
-            color="#841584"
-            title="Enter The Application"
+            //color="#841584"
+            title="Submit Answers"
             onPress={() => submit()}
           />
         </View>

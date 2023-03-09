@@ -12,11 +12,13 @@ const Home = ({ navigation, route }) => {
       }}
     >
       <Text>Home Tab</Text>
+      <Text>{"\n"}</Text>
 
       <Button
         title="Go to Exercises"
         onPress={() => navigation.navigate("ExerciseScreen")}
       />
+      <Text>{"\n"}</Text>
 
       <Button
         title="See Results"

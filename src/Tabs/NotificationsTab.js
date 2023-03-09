@@ -12,6 +12,7 @@ const Notifications = ({ navigation }) => {
       }}
     >
       <Text>NotificationsTab</Text>
+      <Text>{"\n"}</Text>
     </View>
   );
 };
