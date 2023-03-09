@@ -1,7 +1,11 @@
 import { StyleSheet, Text, View, Button } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import { ExercisesList } from "./../exerciseData";
+import SingleExercise from "./SingleExercise";
 
 const ExerciseScreen = ({ navigation, route }) => {
+  const [exerciseIndex, setExerciseIndex] = useState(0);
+
   return (
     <View
       style={{
@@ -11,9 +15,27 @@ const ExerciseScreen = ({ navigation, route }) => {
         backgroundColor: "lightblue",
       }}
     >
-      <Text>ExerciseScreen Tab</Text>
+      <SingleExercise
+        exerciseData={ExercisesList[exerciseIndex]}
+      ></SingleExercise>
 
-      <Button title="Go back" onPress={() => navigation.navigate("HomeTab")} />
+      {exerciseIndex === 0 ? (
+        <Button title="Exit" onPress={() => navigation.navigate("HomeTab")} />
+      ) : (
+        <Button
+          title="Go back"
+          onPress={() => setExerciseIndex(exerciseIndex - 1)}
+        />
+      )}
+
+      {exerciseIndex === ExercisesList.length - 1 ? (
+        <Button title="Exit" onPress={() => navigation.navigate("HomeTab")} />
+      ) : (
+        <Button
+          title="Go Next"
+          onPress={() => setExerciseIndex(exerciseIndex + 1)}
+        />
+      )}
     </View>
   );
 };
