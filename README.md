@@ -20,7 +20,7 @@ Make a Social and Emotional learning application
 </br>
 
 ## How to boot the application:
-* For boot, with CMD you have to move to Mindappy folder and type npx expo start
+* For boot, with CMD you have to move to Mindappy folder and type npx expo install then npx expo start
 
 </br>
 

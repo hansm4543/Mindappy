@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
+import { StyleSheet, Text, View, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomTabNavigator from "./src/Navigation/BottomTabNavigator";
@@ -6,8 +8,6 @@ import StartScreen from "./src/StartScreen";
 import QuestionScreen from "./src/QuestionScreen";
 import ResultScreen from "./src/ResultScreen";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
 
 const Stack = createNativeStackNavigator();
 

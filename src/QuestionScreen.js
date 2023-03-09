@@ -1,5 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Button, View, Image, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import {
+  Button,
+  View,
+  Image,
+  Text,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
+} from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 
 function StartScreen({ navigation, route }) {
@@ -11,6 +19,12 @@ function StartScreen({ navigation, route }) {
     "question3",
     "question4",
     "I struggle to start working or studying without procrastinating",
+    // "I struggle to start working or studying without procrastinating",
+    // "I struggle to start working or studying without procrastinating",
+    // "I struggle to start working or studying without procrastinating",
+    // "I struggle to start working or studying without procrastinating",
+    // "I struggle to start working or studying without procrastinating",
+    // "I struggle to start working or studying without procrastinating",
   ];
 
   const answers = [
@@ -20,6 +34,7 @@ function StartScreen({ navigation, route }) {
   ];
 
   const [valueArr, setValue] = useState([null, null, null, null, null]);
+  const [error, setError] = useState("");
 
   const setValueHandler = (value, i) => {
     const newArr = [...valueArr];
@@ -27,93 +42,114 @@ function StartScreen({ navigation, route }) {
     setValue(newArr);
   };
 
+  const submit = () => {
+    let counter = 0;
+    for (let i = 0; i < valueArr.length; i++) {
+      if (valueArr[i] !== null) {
+        counter++;
+      }
+    }
+
+    if (counter === valueArr.length) {
+      //storeData("@answered", { answered: true });
+      //storeData("@answers", { answered: true });
+      navigation.navigate("Bottomtab");
+    } else {
+      setError("Fill in all the Fields");
+    }
+  };
+
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "lightblue",
-      }}
-    >
-      {questionsList.map((questionData, i) => (
-        <View style={styles.container} key={i}>
-          <Text>{questionData}</Text>
-          <Dropdown
-            style={[styles.dropdown]}
-            placeholderStyle={styles.placeholderStyle}
-            selectedTextStyle={styles.selectedTextStyle}
-            data={answers}
-            maxHeight={200}
-            labelField="label"
-            valueField="value"
-            placeholder={"..."}
-            value={valueArr[i]}
-            onChange={(item) => {
-              setValueHandler(item.value, i);
-            }}
+    <SafeAreaView style={styles.safeAreaView}>
+      <ScrollView style={styles.scrollView}>
+        {questionsList.map((questionData, i) => (
+          <View
+            style={
+              i === questionsList.length - 1 ? styles.viewLast : styles.view
+            }
+            key={i}
+          >
+            <Text style={styles.text}>{questionData}</Text>
+            <Dropdown
+              style={[styles.dropdown]}
+              placeholderStyle={styles.placeholderStyle}
+              selectedTextStyle={styles.selectedTextStyle}
+              data={answers}
+              maxHeight={200}
+              labelField="label"
+              valueField="value"
+              placeholder={"..."}
+              value={valueArr[i]}
+              onChange={(item) => {
+                setValueHandler(item.value, i);
+              }}
+            />
+          </View>
+        ))}
+
+        <View style={styles.buttonView}>
+          <Text style={styles.textError}>{error}</Text>
+
+          <Button
+            color="#841584"
+            title="Enter The Application"
+            onPress={() => submit()}
           />
         </View>
-      ))}
-
-      <Text>{"\n"}</Text>
-      <Text>{"\n"}</Text>
-
-      <Button
-        title="Store T"
-        onPress={() => storeData("@answered", { answered: true })}
-      />
-      <Button
-        title="Store F"
-        onPress={() => storeData("@answered", { answered: false })}
-      />
-
-      <Button
-        title="Enter The Application"
-        onPress={() => navigation.navigate("Bottomtab")}
-      />
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 export default StartScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "white",
+  safeAreaView: {
+    flex: 1,
+    backgroundColor: "lightblue",
+  },
+  scrollView: {
+    marginBottom: 0,
+    marginHorizontal: 20,
+    marginTop: 100,
+    textAlign: "center",
+    borderRadius: 10,
   },
   dropdown: {
     height: 50,
-    width: 300,
-    borderColor: "gray",
+    width: "90%",
+    borderColor: "black",
     borderWidth: 0.5,
     borderRadius: 8,
     paddingHorizontal: 8,
-  },
-  icon: {
-    marginRight: 5,
-  },
-  label: {
-    position: "absolute",
     backgroundColor: "white",
-    left: 22,
-    top: 8,
-    zIndex: 999,
-    paddingHorizontal: 8,
-    fontSize: 14,
   },
-  placeholderStyle: {
+  view: {
+    flex: 1,
+    alignItems: "center",
+    marginBottom: 30,
+  },
+  viewLast: {
+    flex: 1,
+    alignItems: "center",
+  },
+  text: {
+    width: "90%",
+    marginBottom: 10,
+    fontWeight: "bold",
     fontSize: 16,
   },
-  selectedTextStyle: {
-    fontSize: 16,
+  textError: {
+    width: "100%",
+    marginBottom: 10,
+    fontSize: 20,
+    color: "red",
   },
-  iconStyle: {
-    width: 20,
-    height: 20,
-  },
-  inputSearchStyle: {
-    height: 40,
-    fontSize: 16,
+  buttonView: {
+    marginTop: 30,
+    marginBottom: 30,
+    width: "100%",
+    alignItems: "center",
+    textAlign: "center",
   },
 });

@@ -20,6 +20,10 @@ const ResultScreen = ({ navigation, route }) => {
     >
       <Text>Results Tab</Text>
 
+      {/* <Button
+        title="Store F"
+        onPress={() => storeData("@answered", { answered: false })}
+      />  */}
       <Button title="Log Results" onPress={() => getDataInformation()} />
     </View>
   );
