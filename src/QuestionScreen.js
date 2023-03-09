@@ -3,15 +3,7 @@ import { Button, View, Image, Text, StyleSheet } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 
 function StartScreen({ navigation, route }) {
-  // const storeData = route?.params?.storeData;
-  // const getData = route?.params?.getData;
-  // const [count, setCount] = useState({ boolean: false });
-
-  // const getDataInformation = async () => {
-  //   let value = await getData();
-  //   console.log(value);
-  //   setCount(value);
-  // };
+  const storeData = route?.params?.storeData;
 
   const questionsList = [
     "I recognize what I am feeling",
@@ -27,31 +19,12 @@ function StartScreen({ navigation, route }) {
     { label: "Always", value: "always" },
   ];
 
-  const data = [
-    { label: "Item 1", value: "1" },
-    { label: "Item 2", value: "2" },
-    { label: "Item 3", value: "3" },
-    { label: "Item 4", value: "4" },
-    { label: "Item 5", value: "5" },
-    { label: "Item 6", value: "6" },
-    { label: "Item 7", value: "7" },
-    { label: "Item 8", value: "8" },
-  ];
+  const [valueArr, setValue] = useState([null, null, null, null, null]);
 
-  const [valuearr, setValue] = useState([null, null, null, null, null]);
-  const [isFocus, setIsFocus] = useState([false, false, false, false, false]);
-
-  console.log(valuearr);
   const setValueHandler = (value, i) => {
-    const newArr = [...valuearr];
+    const newArr = [...valueArr];
     newArr[i] = value;
     setValue(newArr);
-  };
-
-  const setFocusHandler = (value, i) => {
-    const newArr = [...isFocus];
-    newArr[i] = value;
-    setIsFocus(newArr);
   };
 
   return (
@@ -64,18 +37,18 @@ function StartScreen({ navigation, route }) {
       }}
     >
       {questionsList.map((questionData, i) => (
-        <View style={styles.container}>
+        <View style={styles.container} key={i}>
           <Text>{questionData}</Text>
           <Dropdown
-            style={[styles.dropdown, isFocus && { borderColor: "blue" }]}
+            style={[styles.dropdown]}
             placeholderStyle={styles.placeholderStyle}
             selectedTextStyle={styles.selectedTextStyle}
-            data={data}
+            data={answers}
             maxHeight={200}
             labelField="label"
             valueField="value"
             placeholder={"..."}
-            value={valuearr[i]}
+            value={valueArr[i]}
             onChange={(item) => {
               setValueHandler(item.value, i);
             }}
@@ -85,6 +58,15 @@ function StartScreen({ navigation, route }) {
 
       <Text>{"\n"}</Text>
       <Text>{"\n"}</Text>
+
+      <Button
+        title="Store T"
+        onPress={() => storeData("@answered", { answered: true })}
+      />
+      <Button
+        title="Store F"
+        onPress={() => storeData("@answered", { answered: false })}
+      />
 
       <Button
         title="Enter The Application"

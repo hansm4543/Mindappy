@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, Button } from "react-native";
 import React from "react";
 
-const Home = ({ navigation }) => {
+const Home = ({ navigation, route }) => {
+  //console.log(route);
   return (
     <View
       style={{
@@ -12,6 +13,11 @@ const Home = ({ navigation }) => {
       }}
     >
       <Text>Home Tab</Text>
+
+      <Button
+        title="See Results"
+        onPress={() => navigation.navigate("ResultScreen")}
+      />
     </View>
   );
 };

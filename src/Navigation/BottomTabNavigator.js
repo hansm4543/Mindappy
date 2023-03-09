@@ -7,7 +7,10 @@ import Settings from "../Settings";
 
 const Tab = createMaterialTopTabNavigator();
 
-function BottomTabNavigator({ navigation }) {
+function BottomTabNavigator({ navigation, route }) {
+  // const storeData = route?.params?.storeData;
+  // const getData = route?.params?.getData;
+
   return (
     <Tab.Navigator
       backBehavior="initialRoute"
@@ -47,7 +50,11 @@ function BottomTabNavigator({ navigation }) {
       })}
     >
       <Tab.Screen name="NotificationsTab" component={Notifications} />
-      <Tab.Screen name="HomeTab" component={Home} />
+      <Tab.Screen
+        name="HomeTab"
+        component={Home}
+        //initialParams={{ storeData: storeData, getData: getData }}
+      />
       <Tab.Screen name="SettingsTab" component={Settings} />
     </Tab.Navigator>
   );
