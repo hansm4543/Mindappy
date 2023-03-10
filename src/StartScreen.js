@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, View, Image, Text, BackHandler } from "react-native";
+import { useState, useEffect, useRef } from "react";
 
 function StartScreen({ navigation }) {
   return (

@@ -1,6 +1,6 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
-import { View } from "react-native";
+import { useState, useEffect, useRef } from "react";
+import { Text, View, Button, Platform } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomTabNavigator from "./src/Navigation/BottomTabNavigator";
@@ -10,10 +10,51 @@ import ResultScreen from "./src/ResultScreen";
 import ExerciseScreen from "./src/ExerciseScreen";
 import LogoHeader from "./src/LogoHeader";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Device from "expo-device";
+import * as Notifications from "expo-notifications";
+import * as Linking from "expo-linking";
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
 
 const Stack = createNativeStackNavigator();
 
 function App() {
+  //for Notifications
+  const [expoPushToken, setExpoPushToken] = useState("");
+  const [notification, setNotification] = useState(false);
+  const notificationListener = useRef();
+  const responseListener = useRef();
+
+  useEffect(() => {
+    registerForPushNotificationsAsync().then((token) =>
+      setExpoPushToken(token)
+    );
+
+    notificationListener.current =
+      Notifications.addNotificationReceivedListener((notification) => {
+        setNotification(notification);
+      });
+
+    responseListener.current =
+      Notifications.addNotificationResponseReceivedListener((response) => {
+        console.log(response);
+      });
+
+    return () => {
+      Notifications.removeNotificationSubscription(
+        notificationListener.current
+      );
+      Notifications.removeNotificationSubscription(responseListener.current);
+    };
+  }, []);
+
+  //For other stuff
   const [count, setCount] = useState({ answered: false });
   const [loading, isLoading] = useState(true);
 
@@ -37,7 +78,7 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("refresh");
+    //console.log("refresh");
 
     const fetchData = async () => {
       // get the data from the api
@@ -60,7 +101,7 @@ function App() {
   let isFirstStartUp = count.answered ? false : true;
   const InitialRoute = isFirstStartUp ? "Bottomtab" : "StartScreen";
 
-  if (loading) {
+  if (loading || (expoPushToken === "" && Platform.OS !== "web")) {
     return (
       <View
         style={{
@@ -107,10 +148,62 @@ function App() {
           name="Bottomtab"
           component={BottomTabNavigator}
           options={{ header: (props) => <LogoHeader /> }}
+          initialParams={{
+            expoPushToken,
+            notification,
+            schedulePushNotification,
+            Linking,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
+}
+
+async function schedulePushNotification() {
+  await Notifications.scheduleNotificationAsync({
+    content: {
+      title: "We are",
+      body: "Disabled",
+    },
+    trigger: {
+      seconds: 5,
+      repeats: false,
+    },
+  });
+}
+
+async function registerForPushNotificationsAsync() {
+  let token;
+  console.log(Platform.OS);
+  if (Platform.OS === "android") {
+    await Notifications.setNotificationChannelAsync("default", {
+      name: "default",
+      importance: Notifications.AndroidImportance.MAX,
+      vibrationPattern: [0, 250, 250, 250],
+      lightColor: "#FF231F7C",
+    });
+  }
+
+  if (Device.isDevice && Platform.OS !== "web") {
+    const { status: existingStatus } =
+      await Notifications.getPermissionsAsync();
+    let finalStatus = existingStatus;
+    if (existingStatus !== "granted") {
+      const { status } = await Notifications.requestPermissionsAsync();
+      finalStatus = status;
+    }
+    if (finalStatus !== "granted") {
+      alert("Failed to get push token for push notification!");
+      return;
+    }
+    token = (await Notifications.getExpoPushTokenAsync()).data;
+    console.log(token);
+  } else {
+    alert("Must use physical device for Push Notifications");
+  }
+
+  return token;
 }
 
 export default App;

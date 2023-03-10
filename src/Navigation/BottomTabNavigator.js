@@ -8,6 +8,12 @@ import Settings from "../Tabs/SettingsTab";
 const Tab = createMaterialTopTabNavigator();
 
 function BottomTabNavigator({ navigation, route }) {
+  console.log(route);
+  const expoPushToken = route?.params?.expoPushToken;
+  const notification = route?.params?.notification;
+  const schedulePushNotification = route?.params?.schedulePushNotification;
+  const Linking = route?.params?.Linking;
+
   return (
     <Tab.Navigator
       backBehavior="initialRoute"
@@ -46,7 +52,16 @@ function BottomTabNavigator({ navigation, route }) {
         },
       })}
     >
-      <Tab.Screen name="NotificationsTab" component={Notifications} />
+      <Tab.Screen
+        name="NotificationsTab"
+        component={Notifications}
+        initialParams={{
+          expoPushToken,
+          notification,
+          schedulePushNotification,
+          Linking,
+        }}
+      />
       <Tab.Screen name="HomeTab" component={Home} />
       <Tab.Screen name="SettingsTab" component={Settings} />
     </Tab.Navigator>
