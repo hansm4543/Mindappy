@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  SafeAreaView,
+  ScrollView,
+} from "react-native";
 import React, { useState } from "react";
 import { ExercisesList } from "./../exerciseData";
 import SingleExercise from "./SingleExercise";
@@ -7,39 +14,72 @@ const ExerciseScreen = ({ navigation, route }) => {
   const [exerciseIndex, setExerciseIndex] = useState(0);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "lightblue",
-      }}
-    >
-      <SingleExercise
-        exerciseData={ExercisesList[exerciseIndex]}
-      ></SingleExercise>
+    <SafeAreaView style={styles.container}>
+      <ScrollView
+        style={{
+          flex: 1,
+          backgroundColor: "lightblue",
+          marginHorizontal: 16,
+          paddingVertical: 20,
+        }}
+      >
+        <SingleExercise
+          exerciseData={ExercisesList[exerciseIndex]}
+        ></SingleExercise>
+      </ScrollView>
+      <View style={{ height: 100 }}>
+        <View style={styles.fixToText}>
+          {exerciseIndex === 0 ? (
+            <Button
+              title="Exit"
+              onPress={() => navigation.navigate("HomeTab")}
+            />
+          ) : (
+            <Button
+              title="Go back"
+              onPress={() => setExerciseIndex(exerciseIndex - 1)}
+            />
+          )}
 
-      {exerciseIndex === 0 ? (
-        <Button title="Exit" onPress={() => navigation.navigate("HomeTab")} />
-      ) : (
-        <Button
-          title="Go back"
-          onPress={() => setExerciseIndex(exerciseIndex - 1)}
-        />
-      )}
-
-      {exerciseIndex === ExercisesList.length - 1 ? (
-        <Button title="Exit" onPress={() => navigation.navigate("HomeTab")} />
-      ) : (
-        <Button
-          title="Go Next"
-          onPress={() => setExerciseIndex(exerciseIndex + 1)}
-        />
-      )}
-    </View>
+          {exerciseIndex === ExercisesList.length - 1 ? (
+            <Button
+              title="Exit"
+              onPress={() => navigation.navigate("HomeTab")}
+            />
+          ) : (
+            <Button
+              title="Go Next"
+              onPress={() => setExerciseIndex(exerciseIndex + 1)}
+            />
+          )}
+        </View>
+      </View>
+    </SafeAreaView>
   );
 };
 
-export default ExerciseScreen;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "lightblue",
+  },
+  title: {
+    textAlign: "center",
+    marginVertical: 8,
+  },
+  fixToText: {
+    marginTop: 30,
+    width: "60%",
+    alignSelf: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: "#737373",
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+});
 
-const styles = StyleSheet.create({});
+export default ExerciseScreen;

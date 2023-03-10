@@ -18,7 +18,7 @@ const ExerciseScreen = ({ exerciseData }) => {
           {exercise.type === "list" ? (
             <ListView listData={exercise.data}></ListView>
           ) : (
-            <View>
+            <View style={{ flexDirection: "row" }}>
               <Text style={styles[exercise.fontWeight]}>{exercise.data}</Text>
               {/* <Text>{"\n"}</Text> */}
             </View>
@@ -35,8 +35,12 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: "bold",
     fontSize: 16,
+    flex: 1,
+    flexWrap: "wrap",
   },
   normal: {
     fontSize: 16,
+    flex: 1,
+    flexWrap: "wrap",
   },
 });

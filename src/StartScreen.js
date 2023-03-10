@@ -8,6 +8,8 @@ function StartScreen({ navigation }) {
         flex: 1,
         alignItems: "center",
         backgroundColor: "lightblue",
+        width: "100%",
+        height: "100%",
       }}
     >
       <View
@@ -16,8 +18,8 @@ function StartScreen({ navigation }) {
           width: "100%",
           height: 130,
           alignItems: "center",
-          marginBottom: "30%",
-          marginTop: "40%",
+          marginBottom: 200,
+          marginTop: 200,
         }}
       >
         <View

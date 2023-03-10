@@ -7,6 +7,7 @@ import {
   StyleSheet,
   ScrollView,
   SafeAreaView,
+  TouchableOpacity,
 } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 
@@ -90,11 +91,21 @@ function StartScreen({ navigation, route }) {
         <View style={styles.buttonView}>
           <Text style={styles.textError}>{error}</Text>
 
-          <Button
-            //color="#841584"
-            title="Submit Answers"
-            onPress={() => submit()}
-          />
+          <View
+            style={[
+              {
+                width: "50%",
+                height: "30%",
+                alignSelf: "center",
+              },
+            ]}
+          >
+            <Button
+              //color="#841584"
+              title="Submit Answers"
+              onPress={() => submit()}
+            />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -111,7 +122,7 @@ const styles = StyleSheet.create({
   scrollView: {
     marginBottom: 0,
     marginHorizontal: 20,
-    marginTop: 20,
+    paddingVertical: 20,
     textAlign: "center",
     borderRadius: 10,
   },
@@ -140,16 +151,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   textError: {
-    width: "100%",
+    //width: "100%",
     marginBottom: 10,
     fontSize: 20,
     color: "red",
+    alignSelf: "center",
   },
   buttonView: {
     marginTop: 30,
     marginBottom: 30,
     width: "100%",
-    alignItems: "center",
-    textAlign: "center",
+    // alignItems: "center",
+    // textAlign: "center",
+    // alignSelf: "center",
   },
 });

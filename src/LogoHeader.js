@@ -1,28 +1,30 @@
 import * as React from "react";
-import { View, Image } from "react-native";
+import { View, Image, SafeAreaView } from "react-native";
 
 const LogoHeader = () => {
   return (
-    <View
-      style={{ alignItems: "center", backgroundColor: "white", height: 70 }}
-    >
+    <SafeAreaView style={{ marginTop: 30 }}>
       <View
-        style={{
-          marginTop: 10,
-          width: 150,
-          height: 50,
-        }}
+        style={{ alignItems: "center", backgroundColor: "white", height: 70 }}
       >
-        <Image
+        <View
           style={{
-            flex: 1,
-            width: undefined,
-            height: undefined,
+            marginTop: 10,
+            width: 150,
+            height: 50,
           }}
-          source={require("./../Mindappy.png")}
-        />
+        >
+          <Image
+            style={{
+              flex: 1,
+              width: undefined,
+              height: undefined,
+            }}
+            source={require("./../Mindappy.png")}
+          />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

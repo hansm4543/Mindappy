@@ -3,12 +3,12 @@ export const ExercisesList = [
     {
       fontWeight: "normal",
       type: "text",
-      data: "Tunded on tore ja loomulik osa elust. Ometi tuleb igal inimesel ette olukordi, kus mõni tunne on liiga tugev.\n\n",
+      data: "Tunded on tore ja loomulik osa elust. Ometi tuleb igal inimesel ette olukordi, kus mõni tunne on liiga tugev.\n",
     },
     {
       fontWeight: "normal",
       type: "text",
-      data: "Aruta oma kaaslasega, kas ja milliseid olukordi tuleb ette sinu elus, kus tugevad tunded on vastuolus mingi eesmärgiga, mis on sulle oluline. Näiteks, sa tahad hästi esineda mingi ettekandega või sooritada hästi eksami või kontrolltöö, aga sul on ärevus. Sa oled närvis tööasjade pärast ja ei taha seda välja elada kodus oma lähedaste peal.\n\n",
+      data: "Aruta oma kaaslasega, kas ja milliseid olukordi tuleb ette sinu elus, kus tugevad tunded on vastuolus mingi eesmärgiga, mis on sulle oluline. Näiteks, sa tahad hästi esineda mingi ettekandega või sooritada hästi eksami või kontrolltöö, aga sul on ärevus. Sa oled närvis tööasjade pärast ja ei taha seda välja elada kodus oma lähedaste peal.\n",
     },
     {
       fontWeight: "normal",
@@ -20,22 +20,22 @@ export const ExercisesList = [
     {
       fontWeight: "normal",
       type: "text",
-      data: "Nagu eelmises õppetunnis mainisime, siis kuigi tunded on tavapärane osa elus võib vahel meil olla vajadus liiga tugevat tunnet vaigistada.\n\n",
+      data: "Nagu eelmises õppetunnis mainisime, siis kuigi tunded on tavapärane osa elus võib vahel meil olla vajadus liiga tugevat tunnet vaigistada.\n",
     },
     {
       fontWeight: "normal",
       type: "text",
-      data: "Selleks, et oma tundeid juhtida, tuleb kõigepealt õppida neid ära tundma.\n\n",
+      data: "Selleks, et oma tundeid juhtida, tuleb kõigepealt õppida neid ära tundma.\n",
     },
     {
       fontWeight: "normal",
       type: "text",
-      data: "Arutlege koos kaaslasega, milliseid tundeid inimesed kogevad ja kuidas sa tead, et sul on just üks või teine tunne.\n\n",
+      data: "Arutlege koos kaaslasega, milliseid tundeid inimesed kogevad ja kuidas sa tead, et sul on just üks või teine tunne.\n",
     },
     {
       fontWeight: "bold",
       type: "text",
-      data: "Vihje:\n",
+      data: "Vihje:",
     },
     {
       fontWeight: "normal",
@@ -47,22 +47,22 @@ export const ExercisesList = [
     {
       fontWeight: "normal",
       type: "text",
-      data: "Selleks, et me saaksime oma tunnetega paremini hakkama, tuleb õppida neid ära tundma. Järgmistes õppetundides võtame ette kuus põhilist tunnet ja arutame selle üle, kuidas just SINA neid ära tunned.\n\n",
+      data: "Selleks, et me saaksime oma tunnetega paremini hakkama, tuleb õppida neid ära tundma. Järgmistes õppetundides võtame ette kuus põhilist tunnet ja arutame selle üle, kuidas just SINA neid ära tunned.\n",
     },
     {
       fontWeight: "normal",
       type: "text",
-      data: "Iga inimene on erinev, seega arutage koos kaaslasega, mis juhtub just SINU kehas, kui sa tunned viha.\n\n",
+      data: "Iga inimene on erinev, seega arutage koos kaaslasega, mis juhtub just SINU kehas, kui sa tunned viha.\n",
     },
     {
       fontWeight: "bold",
       type: "text",
-      data: "Vihje:\n",
+      data: "Vihje:",
     },
     {
       fontWeight: "normal",
       type: "text",
-      data: "Mõnel inimesel on viha tundes:\n",
+      data: "Mõnel inimesel on viha tundes:",
     },
     {
       //fontWeight: "normal",
