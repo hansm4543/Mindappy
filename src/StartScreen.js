@@ -7,15 +7,37 @@ function StartScreen({ navigation }) {
       style={{
         flex: 1,
         alignItems: "center",
-        justifyContent: "center",
         backgroundColor: "lightblue",
       }}
     >
-      <Image
-        source={{ uri: "https://via.placeholder.com/208x208/ccc" }}
-        style={{ width: 208, height: 208 }}
-      />
-      <Text>{"\n"}</Text>
+      <View
+        style={{
+          backgroundColor: "white",
+          width: "100%",
+          height: 130,
+          alignItems: "center",
+          marginBottom: "30%",
+          marginTop: "40%",
+        }}
+      >
+        <View
+          style={{
+            width: 300,
+            height: 100,
+            marginTop: 15,
+          }}
+        >
+          <Image
+            style={{
+              flex: 1,
+              width: undefined,
+              height: undefined,
+            }}
+            source={require("./../Mindappy.png")}
+          />
+        </View>
+      </View>
+
       <Button
         title="Enter The Application"
         onPress={() => navigation.navigate("QuestionScreen")}

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomTabNavigator from "./src/Navigation/BottomTabNavigator";
@@ -8,6 +8,7 @@ import StartScreen from "./src/StartScreen";
 import QuestionScreen from "./src/QuestionScreen";
 import ResultScreen from "./src/ResultScreen";
 import ExerciseScreen from "./src/ExerciseScreen";
+import LogoHeader from "./src/LogoHeader";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Stack = createNativeStackNavigator();
@@ -76,30 +77,36 @@ function App() {
       <Stack.Navigator
         initialRouteName={InitialRoute}
         screenOptions={({ route }) => ({
-          headerShown: false,
+          headerShown: true,
         })}
       >
-        <Stack.Screen name="StartScreen" component={StartScreen} />
+        <Stack.Screen
+          name="StartScreen"
+          component={StartScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="ExerciseScreen"
           component={ExerciseScreen}
           initialParams={{ storeData, getData }}
+          options={{ header: (props) => <LogoHeader /> }}
         />
         <Stack.Screen
           name="QuestionScreen"
           component={QuestionScreen}
           initialParams={{ storeData, getData }}
+          options={{ header: (props) => <LogoHeader /> }}
         />
         <Stack.Screen
           name="ResultScreen"
           component={ResultScreen}
-          options={{ headerShown: false }}
+          options={{ header: (props) => <LogoHeader /> }}
           initialParams={{ getData }}
         />
         <Stack.Screen
           name="Bottomtab"
           component={BottomTabNavigator}
-          options={{ headerShown: false }}
+          options={{ header: (props) => <LogoHeader /> }}
         />
       </Stack.Navigator>
     </NavigationContainer>

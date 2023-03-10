@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   scrollView: {
     marginBottom: 0,
     marginHorizontal: 20,
-    marginTop: 100,
+    marginTop: 20,
     textAlign: "center",
     borderRadius: 10,
   },
