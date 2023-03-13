@@ -8,11 +8,8 @@ import Settings from "../Tabs/SettingsTab";
 const Tab = createMaterialTopTabNavigator();
 
 function BottomTabNavigator({ navigation, route }) {
-  console.log(route);
   const expoPushToken = route?.params?.expoPushToken;
-  const notification = route?.params?.notification;
   const schedulePushNotification = route?.params?.schedulePushNotification;
-  const Linking = route?.params?.Linking;
 
   return (
     <Tab.Navigator
@@ -25,7 +22,7 @@ function BottomTabNavigator({ navigation, route }) {
         },
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarActiveTintColor: "purple",
+        tabBarActiveTintColor: "#2596be",
         tabBarStyle: {
           borderRadius: 10,
           position: "absolute",
@@ -57,9 +54,7 @@ function BottomTabNavigator({ navigation, route }) {
         component={Notifications}
         initialParams={{
           expoPushToken,
-          notification,
           schedulePushNotification,
-          Linking,
         }}
       />
       <Tab.Screen name="HomeTab" component={Home} />

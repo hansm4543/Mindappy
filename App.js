@@ -100,6 +100,7 @@ function App() {
   //let isFirstStartUp = count.answered ? true : false;
   let isFirstStartUp = count.answered ? false : true;
   const InitialRoute = isFirstStartUp ? "Bottomtab" : "StartScreen";
+  let englishMode = false;
 
   if (loading || (expoPushToken === "" && Platform.OS !== "web")) {
     return (
@@ -150,9 +151,7 @@ function App() {
           options={{ header: (props) => <LogoHeader /> }}
           initialParams={{
             expoPushToken,
-            notification,
             schedulePushNotification,
-            Linking,
           }}
         />
       </Stack.Navigator>
@@ -160,17 +159,42 @@ function App() {
   );
 }
 
-async function schedulePushNotification() {
-  await Notifications.scheduleNotificationAsync({
-    content: {
-      title: "We are",
-      body: "Disabled",
-    },
-    trigger: {
-      seconds: 5,
-      repeats: false,
-    },
-  });
+async function schedulePushNotification(version = undefined, time) {
+  let text = englishMode ? "Time to exercise" : "Harjutuste tegemise aeg";
+  if (version === "minutes") {
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: text,
+        body: "Mindappy",
+      },
+      trigger: {
+        minutes: 15,
+        repeats: false,
+      },
+    });
+  } else if (version === "hour") {
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: text,
+        body: "Mindappy",
+      },
+      trigger: {
+        hours: 1,
+        repeats: false,
+      },
+    });
+  } else {
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: text,
+        body: "Mindappy",
+      },
+      trigger: {
+        seconds: 15,
+        repeats: false,
+      },
+    });
+  }
 }
 
 async function registerForPushNotificationsAsync() {
@@ -200,7 +224,7 @@ async function registerForPushNotificationsAsync() {
     token = (await Notifications.getExpoPushTokenAsync()).data;
     console.log(token);
   } else {
-    alert("Must use physical device for Push Notifications");
+    //alert("Must use physical device for Push Notifications");
   }
 
   return token;

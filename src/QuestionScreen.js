@@ -73,8 +73,8 @@ function StartScreen({ navigation, route }) {
             <Text style={styles.text}>{questionData}</Text>
             <Dropdown
               style={[styles.dropdown]}
-              placeholderStyle={styles.placeholderStyle}
-              selectedTextStyle={styles.selectedTextStyle}
+              // placeholderStyle={styles.placeholderStyle}
+              // selectedTextStyle={styles.selectedTextStyle}
               data={answers}
               maxHeight={200}
               labelField="label"
