@@ -10,6 +10,7 @@ const Tab = createMaterialTopTabNavigator();
 function BottomTabNavigator({ navigation, route }) {
   const expoPushToken = route?.params?.expoPushToken;
   const schedulePushNotification = route?.params?.schedulePushNotification;
+  const englishMode = route?.params?.englishMode;
 
   return (
     <Tab.Navigator
@@ -55,10 +56,19 @@ function BottomTabNavigator({ navigation, route }) {
         initialParams={{
           expoPushToken,
           schedulePushNotification,
+          englishMode,
         }}
       />
-      <Tab.Screen name="HomeTab" component={Home} />
-      <Tab.Screen name="SettingsTab" component={Settings} />
+      <Tab.Screen
+        name="HomeTab"
+        component={Home}
+        initialParams={{ englishMode }}
+      />
+      <Tab.Screen
+        name="SettingsTab"
+        component={Settings}
+        initialParams={{ englishMode }}
+      />
     </Tab.Navigator>
   );
 }

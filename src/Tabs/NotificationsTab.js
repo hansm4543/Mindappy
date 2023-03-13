@@ -6,11 +6,10 @@ import { Dropdown } from "react-native-element-dropdown";
 const Notifications = ({ navigation, route }) => {
   const expoPushToken = route?.params?.expoPushToken;
   const schedulePushNotification = route?.params?.schedulePushNotification;
+  const englishMode = route?.params?.englishMode;
 
   const [hour, setHour] = useState("0");
   const [minute, setMinute] = useState("0");
-
-  let englishMode = false;
 
   useEffect(() => {
     console.log("refresh");
@@ -66,7 +65,9 @@ const Notifications = ({ navigation, route }) => {
           justifyContent: "space-evenly",
         }}
       >
-        <Text style={[styles.font]}>{"Lühiajalised teavitused"}</Text>
+        <Text style={[styles.font]}>
+          {englishMode ? "Short term notificatons" : "Lühiajalised teavitused"}
+        </Text>
 
         <Button
           title={englishMode ? "15 minutes" : "15 minutit"}
@@ -89,7 +90,10 @@ const Notifications = ({ navigation, route }) => {
           justifyContent: "space-evenly",
         }}
       >
-        <Text style={[styles.font]}>{"Määratud ajaline teavitus"}</Text>
+        <Text style={[styles.font]}>
+          {englishMode ? "Timed notification" : "Määratud ajaline teavitus"}
+        </Text>
+
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Dropdown
             style={[styles.dropdown]}
@@ -133,7 +137,7 @@ export default Notifications;
 const styles = StyleSheet.create({
   dropdown: {
     height: 50,
-    width: "20%",
+    width: 60,
     borderColor: "black",
     borderWidth: 0.5,
     borderRadius: 8,

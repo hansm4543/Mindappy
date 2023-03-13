@@ -2,7 +2,9 @@ import React from "react";
 import { Button, View, Image, Text, BackHandler } from "react-native";
 import { useState, useEffect, useRef } from "react";
 
-function StartScreen({ navigation }) {
+function StartScreen({ navigation, route }) {
+  const englishMode = route?.params?.englishMode;
+
   return (
     <View
       style={{
@@ -42,7 +44,7 @@ function StartScreen({ navigation }) {
       </View>
 
       <Button
-        title="Enter The Application"
+        title={englishMode ? "Enter The Application" : "Sisenen rakendusse"}
         onPress={() => navigation.navigate("QuestionScreen")}
       />
     </View>

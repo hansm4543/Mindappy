@@ -1,29 +1,35 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, View, Button } from "react-native";
 import React from "react";
 
 const Home = ({ navigation, route }) => {
+  const englishMode = route?.params?.englishMode;
+
   return (
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
         backgroundColor: "lightblue",
       }}
     >
-      <Text>Home Tab</Text>
-      <Text>{"\n"}</Text>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          backgroundColor: "lightblue",
+          marginVertical: "30%",
+        }}
+      >
+        <Button
+          title={englishMode ? "Go to Exercises" : "Liigu harjutama"}
+          onPress={() => navigation.navigate("ExerciseScreen")}
+        />
 
-      <Button
-        title="Go to Exercises"
-        onPress={() => navigation.navigate("ExerciseScreen")}
-      />
-      <Text>{"\n"}</Text>
-
-      <Button
-        title="See Results"
-        onPress={() => navigation.navigate("ResultScreen")}
-      />
+        <Button
+          title={englishMode ? "See Results" : "Vaata tulemusi"}
+          onPress={() => navigation.navigate("ResultScreen")}
+        />
+      </View>
     </View>
   );
 };

@@ -57,6 +57,7 @@ function App() {
   //For other stuff
   const [count, setCount] = useState({ answered: false });
   const [loading, isLoading] = useState(true);
+  const [englishMode, setEnglishMode] = useState(false);
 
   const storeData = async (key, value) => {
     try {
@@ -100,7 +101,6 @@ function App() {
   //let isFirstStartUp = count.answered ? true : false;
   let isFirstStartUp = count.answered ? false : true;
   const InitialRoute = isFirstStartUp ? "Bottomtab" : "StartScreen";
-  let englishMode = false;
 
   if (loading || (expoPushToken === "" && Platform.OS !== "web")) {
     return (
@@ -126,24 +126,25 @@ function App() {
           name="StartScreen"
           component={StartScreen}
           options={{ headerShown: false }}
+          initialParams={{ englishMode }}
         />
         <Stack.Screen
           name="ExerciseScreen"
           component={ExerciseScreen}
-          initialParams={{ storeData, getData }}
+          initialParams={{ storeData, getData, englishMode }}
           options={{ header: (props) => <LogoHeader /> }}
         />
         <Stack.Screen
           name="QuestionScreen"
           component={QuestionScreen}
-          initialParams={{ storeData, getData }}
+          initialParams={{ storeData, getData, englishMode }}
           options={{ header: (props) => <LogoHeader /> }}
         />
         <Stack.Screen
           name="ResultScreen"
           component={ResultScreen}
           options={{ header: (props) => <LogoHeader /> }}
-          initialParams={{ getData }}
+          initialParams={{ getData, englishMode }}
         />
         <Stack.Screen
           name="Bottomtab"
@@ -152,6 +153,7 @@ function App() {
           initialParams={{
             expoPushToken,
             schedulePushNotification,
+            englishMode,
           }}
         />
       </Stack.Navigator>

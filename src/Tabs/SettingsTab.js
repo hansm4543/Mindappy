@@ -8,15 +8,13 @@ import {
 } from "react-native";
 import React from "react";
 
-const Settings = ({ navigation }) => {
+const Settings = ({ navigation, route }) => {
+  const englishMode = route?.params?.englishMode;
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
         <Text style={styles.text}>{"hello"}</Text>
-        <Button
-          title="Exit the application"
-          onPress={() => navigation.navigate("StartScreen")}
-        />
       </ScrollView>
     </SafeAreaView>
   );

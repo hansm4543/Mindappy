@@ -11,6 +11,8 @@ import { ExercisesList } from "./../exerciseData";
 import SingleExercise from "./SingleExercise";
 
 const ExerciseScreen = ({ navigation, route }) => {
+  const englishMode = route?.params?.englishMode;
+
   const [exerciseIndex, setExerciseIndex] = useState(0);
 
   return (
@@ -31,24 +33,24 @@ const ExerciseScreen = ({ navigation, route }) => {
         <View style={styles.fixToText}>
           {exerciseIndex === 0 ? (
             <Button
-              title="Exit"
+              title={englishMode ? "Exit" : "Välju"}
               onPress={() => navigation.navigate("HomeTab")}
             />
           ) : (
             <Button
-              title="Go back"
+              title={englishMode ? "Go back" : "Eelmine"}
               onPress={() => setExerciseIndex(exerciseIndex - 1)}
             />
           )}
 
           {exerciseIndex === ExercisesList.length - 1 ? (
             <Button
-              title="Exit"
+              title={englishMode ? "Exit" : "Välju"}
               onPress={() => navigation.navigate("HomeTab")}
             />
           ) : (
             <Button
-              title="Go Next"
+              title={englishMode ? "Go Next" : "Järgmine"}
               onPress={() => setExerciseIndex(exerciseIndex + 1)}
             />
           )}

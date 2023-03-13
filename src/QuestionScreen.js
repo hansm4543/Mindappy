@@ -13,6 +13,7 @@ import { Dropdown } from "react-native-element-dropdown";
 
 function StartScreen({ navigation, route }) {
   const storeData = route?.params?.storeData;
+  const englishMode = route?.params?.englishMode;
 
   const questionsList = [
     "I recognize what I am feeling",
@@ -102,7 +103,7 @@ function StartScreen({ navigation, route }) {
           >
             <Button
               //color="#841584"
-              title="Submit Answers"
+              title={englishMode ? "Submit Answers" : "Lõpetan küsimustiku"}
               onPress={() => submit()}
             />
           </View>

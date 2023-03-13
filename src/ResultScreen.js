@@ -3,6 +3,7 @@ import React from "react";
 
 const ResultScreen = ({ navigation, route }) => {
   const getData = route?.params?.getData;
+  const englishMode = route?.params?.englishMode;
 
   const getDataInformation = async () => {
     let value = await getData();
@@ -26,12 +27,15 @@ const ResultScreen = ({ navigation, route }) => {
       />  */}
       <Button title="Log Results" onPress={() => getDataInformation()} />
 
-      <Button
+      {/* <Button
         title="Take assessment again"
         onPress={() => navigation.navigate("QuestionScreen")}
-      />
+      /> */}
 
-      <Button title="Go back" onPress={() => navigation.navigate("HomeTab")} />
+      <Button
+        title={englishMode ? "Go back" : "Tagasi"}
+        onPress={() => navigation.navigate("HomeTab")}
+      />
     </View>
   );
 };
