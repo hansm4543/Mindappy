@@ -122,9 +122,16 @@ const Notifications = ({ navigation, route }) => {
           />
         </View>
         <Button
-          title={englishMode ? "Schedule a notification" : "Teavita mind"}
+          title={englishMode ? "Notify me" : "Teavita mind"}
           onPress={async () => {
-            await schedulePushNotification();
+            await schedulePushNotification(
+              "timed",
+              {
+                hour: hour,
+                minute: minute,
+              },
+              englishMode
+            );
           }}
         />
       </View>

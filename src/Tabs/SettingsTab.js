@@ -26,35 +26,37 @@ const Settings = ({ navigation, route }) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "lightblue",
+      }}
+    >
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "lightblue",
+          marginVertical: "30%",
+        }}
+      >
+        <Text style={[styles.font]}>
+          {englishModeBottomTab ? "Language" : "Keel"}
+        </Text>
         <Button
           title={englishModeBottomTab ? "English" : "Eesti"}
           onPress={() => changeLanguage()}
         />
-      </ScrollView>
-    </SafeAreaView>
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "lightgray",
-  },
-  scrollView: {
-    backgroundColor: "gray",
-    marginBottom: 80,
-    marginHorizontal: 10,
-    marginTop: 10,
-    alignContent: "center",
-    textAlign: "center",
-    flex: 1,
-    borderRadius: 10,
-  },
-  text: {
-    fontSize: 42,
-    margin: 5,
+  font: {
+    fontSize: 25,
+    marginBottom: 20,
   },
 });
 

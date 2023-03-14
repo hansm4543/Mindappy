@@ -166,7 +166,11 @@ function App() {
   );
 }
 
-async function schedulePushNotification(version = undefined, time) {
+async function schedulePushNotification(
+  version = undefined,
+  time,
+  englishMode
+) {
   let text = englishMode ? "Time to exercise" : "Harjutuste tegemise aeg";
   if (version === "minutes") {
     await Notifications.scheduleNotificationAsync({
@@ -175,7 +179,7 @@ async function schedulePushNotification(version = undefined, time) {
         body: "Mindappy",
       },
       trigger: {
-        minutes: 15,
+        seconds: 60 * 15,
         repeats: false,
       },
     });
@@ -186,7 +190,19 @@ async function schedulePushNotification(version = undefined, time) {
         body: "Mindappy",
       },
       trigger: {
-        hours: 1,
+        seconds: 60 * 60,
+        repeats: false,
+      },
+    });
+  } else if (version === "timed") {
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: text,
+        body: "Mindappy",
+      },
+      trigger: {
+        hour: parseInt(time.hour, 10),
+        minute: parseInt(time.minute, 10),
         repeats: false,
       },
     });
