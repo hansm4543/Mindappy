@@ -12,7 +12,6 @@ import LogoHeader from "./src/LogoHeader";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
-import * as Linking from "expo-linking";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -83,10 +82,14 @@ function App() {
 
     const fetchData = async () => {
       // get the data from the api
-      const data = await getData("@answered");
+      const answered = await getData("@answered");
       // set state with the result
-      if (data !== null) {
-        setCount(data);
+      if (answered !== null) {
+        setCount(answered);
+      }
+      const language = await getData("@englishMode");
+      if (language !== null) {
+        setEnglishMode(language.value);
       }
       isLoading(false);
     };
@@ -101,6 +104,8 @@ function App() {
   //let isFirstStartUp = count.answered ? true : false;
   let isFirstStartUp = count.answered ? false : true;
   const InitialRoute = isFirstStartUp ? "Bottomtab" : "StartScreen";
+
+  console.log(englishMode);
 
   if (loading || (expoPushToken === "" && Platform.OS !== "web")) {
     return (
@@ -154,6 +159,8 @@ function App() {
             expoPushToken,
             schedulePushNotification,
             englishMode,
+            setEnglishMode,
+            storeData,
           }}
         />
       </Stack.Navigator>
@@ -227,6 +234,7 @@ async function registerForPushNotificationsAsync() {
     console.log(token);
   } else {
     //alert("Must use physical device for Push Notifications");
+    //re add before publishing
   }
 
   return token;

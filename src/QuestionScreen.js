@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import {
   Button,
   View,
-  Image,
   Text,
   StyleSheet,
   ScrollView,
   SafeAreaView,
-  TouchableOpacity,
 } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 

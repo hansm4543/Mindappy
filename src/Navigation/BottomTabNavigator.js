@@ -4,6 +4,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import Home from "../Tabs/HomeTab";
 import Notifications from "../Tabs/NotificationsTab";
 import Settings from "../Tabs/SettingsTab";
+import { useState } from "react";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -11,12 +12,17 @@ function BottomTabNavigator({ navigation, route }) {
   const expoPushToken = route?.params?.expoPushToken;
   const schedulePushNotification = route?.params?.schedulePushNotification;
   const englishMode = route?.params?.englishMode;
+  const setEnglishMode = route?.params?.setEnglishMode;
+  const storeData = route?.params?.storeData;
+
+  const [englishModeBottomTab, setEnglishModeBottomTab] = useState(englishMode);
 
   return (
     <Tab.Navigator
       backBehavior="initialRoute"
       tabBarPosition="bottom"
       initialRouteName="HomeTab"
+      initialParams={{ englishMode }}
       screenOptions={({ route, navigation }) => ({
         tabBarIndicatorStyle: {
           backgroundColor: "transparent",
@@ -56,18 +62,23 @@ function BottomTabNavigator({ navigation, route }) {
         initialParams={{
           expoPushToken,
           schedulePushNotification,
-          englishMode,
+          englishMode: englishModeBottomTab,
         }}
       />
       <Tab.Screen
         name="HomeTab"
         component={Home}
-        initialParams={{ englishMode }}
+        initialParams={{ englishMode: englishModeBottomTab }}
       />
       <Tab.Screen
         name="SettingsTab"
         component={Settings}
-        initialParams={{ englishMode }}
+        initialParams={{
+          englishModeBottomTab,
+          setEnglishMode,
+          setEnglishModeBottomTab,
+          storeData,
+        }}
       />
     </Tab.Navigator>
   );

@@ -9,12 +9,29 @@ import {
 import React from "react";
 
 const Settings = ({ navigation, route }) => {
-  const englishMode = route?.params?.englishMode;
+  const englishModeBottomTab = route?.params?.englishModeBottomTab;
+  const setEnglishMode = route?.params?.setEnglishMode;
+  const setEnglishModeBottomTab = route?.params?.setEnglishModeBottomTab;
+  const storeData = route?.params?.storeData;
+
+  const changeLanguage = () => {
+    storeData("@englishMode", { value: englishModeBottomTab ? false : true });
+    setEnglishMode(englishModeBottomTab ? false : true);
+    setEnglishModeBottomTab(englishModeBottomTab ? false : true);
+
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "SettingsTab" }],
+    });
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>
-        <Text style={styles.text}>{"hello"}</Text>
+        <Button
+          title={englishModeBottomTab ? "English" : "Eesti"}
+          onPress={() => changeLanguage()}
+        />
       </ScrollView>
     </SafeAreaView>
   );
