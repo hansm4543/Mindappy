@@ -27,10 +27,12 @@ const ResultScreen = ({ navigation, route }) => {
       />  */}
       <Button title="Log Results" onPress={() => getDataInformation()} />
 
-      {/* <Button
-        title="Take assessment again"
+      <Button
+        title={
+          englishMode ? "Take assessment again" : "Tee taseme testi uuesti"
+        }
         onPress={() => navigation.navigate("QuestionScreen")}
-      /> */}
+      />
 
       <Button
         title={englishMode ? "Go back" : "Tagasi"}

@@ -104,6 +104,11 @@ function StartScreen({ navigation, route }) {
               title={englishMode ? "Submit Answers" : "Lõpetan küsimustiku"}
               onPress={() => submit()}
             />
+            <Button
+              //color="#841584"
+              title={englishMode ? "Submit Answers" : "Lõpetan küsimustiku"}
+              onPress={() => storeData("@answered", { value: true })}
+            />
           </View>
         </View>
       </ScrollView>

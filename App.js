@@ -54,7 +54,7 @@ function App() {
   }, []);
 
   //For other stuff
-  const [count, setCount] = useState({ answered: false });
+  const [questionsAnswered, setQuestionsAnswered] = useState(false);
   const [loading, isLoading] = useState(true);
   const [englishMode, setEnglishMode] = useState(false);
 
@@ -85,7 +85,7 @@ function App() {
       const answered = await getData("@answered");
       // set state with the result
       if (answered !== null) {
-        setCount(answered);
+        setQuestionsAnswered(answered.value);
       }
       const language = await getData("@englishMode");
       if (language !== null) {
@@ -100,12 +100,10 @@ function App() {
       .catch(console.error);
   }, [loading]); // Only re-run the effect if [in brackets] changes
 
-  //top one is correct to get into question screen
-  //let isFirstStartUp = count.answered ? true : false;
-  let isFirstStartUp = count.answered ? false : true;
+  //top one is correct to get into question screen after first startup
+  let isFirstStartUp = questionsAnswered ? true : false;
+  //let isFirstStartUp = questionsAnswered ? false : true;
   const InitialRoute = isFirstStartUp ? "Bottomtab" : "StartScreen";
-
-  console.log(englishMode);
 
   if (loading || (expoPushToken === "" && Platform.OS !== "web")) {
     return (

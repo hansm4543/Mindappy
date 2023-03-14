@@ -12,7 +12,7 @@ const Notifications = ({ navigation, route }) => {
   const [minute, setMinute] = useState("0");
 
   useEffect(() => {
-    console.log("refresh");
+    //console.log("refresh");
   }, [expoPushToken]); // Only re-run the effect if [in brackets] changes
 
   const getHours = () => {
