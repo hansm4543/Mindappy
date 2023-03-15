@@ -17,25 +17,25 @@ function StartScreen({ navigation, route }) {
 
   const answers = [
     [
-      { label: "Never", value: "never" },
-      { label: "Rarely", value: "rarely" },
-      { label: "Sometimes", value: "sometimes" },
-      { label: "Often", value: "often" },
-      { label: "Always", value: "always" },
+      { label: "Never", value: "1" },
+      { label: "Rarely", value: "2" },
+      { label: "Sometimes", value: "3" },
+      { label: "Often", value: "4" },
+      { label: "Always", value: "5" },
     ],
     [
-      { label: "Strongly disagree", value: "strongly disagree" },
-      { label: "Disagree", value: "disagree" },
-      { label: "Neither agree nor disagree", value: "neither" },
-      { label: "Agree", value: "agree" },
-      { label: "Strongly agree", value: "strongly agree" },
+      { label: "Strongly disagree", value: "1" },
+      { label: "Disagree", value: "2" },
+      { label: "Neither agree nor disagree", value: "3" },
+      { label: "Agree", value: "4" },
+      { label: "Strongly agree", value: "5" },
     ],
     [
-      { label: "Poor", value: "poor" },
-      { label: "Fair", value: "fair" },
-      { label: "Good", value: "good" },
-      { label: "Very good", value: "very good" },
-      { label: "Excellent", value: "excellent" },
+      { label: "Poor", value: "1" },
+      { label: "Fair", value: "2" },
+      { label: "Good", value: "3" },
+      { label: "Very good", value: "4" },
+      { label: "Excellent", value: "5" },
     ],
   ];
 
@@ -169,7 +169,7 @@ function StartScreen({ navigation, route }) {
           >
             {getValueForHeading(i, englishMode)[0] && (
               <View style={{ alignSelf: "center", marginTop: 40 }}>
-                <Text style={styles.text}>
+                <Text style={styles.textHeading}>
                   {getValueForHeading(i, englishMode)[1]}
                 </Text>
               </View>
@@ -209,6 +209,7 @@ function StartScreen({ navigation, route }) {
                 width: "50%",
                 height: "30%",
                 alignSelf: "center",
+                marginBottom: 50,
               },
             ]}
           >
@@ -268,7 +269,13 @@ const styles = StyleSheet.create({
     width: "90%",
     marginBottom: 10,
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 14,
+  },
+  textHeading: {
+    width: "100%",
+    marginBottom: 10,
+    fontWeight: "bold",
+    fontSize: 20,
   },
   textError: {
     //width: "100%",
