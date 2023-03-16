@@ -55,8 +55,8 @@ function App() {
 
   //For other stuff
   const [questionsAnswered, setQuestionsAnswered] = useState(false);
-  const [loading, isLoading] = useState(true);
-  const [englishMode, setEnglishMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [englishMode, setEnglishMode] = useState(true);
 
   const storeData = async (key, value) => {
     try {
@@ -91,21 +91,21 @@ function App() {
       if (language !== null) {
         setEnglishMode(language.value);
       }
-      isLoading(false);
+      setIsLoading(false);
     };
 
     // call the function
     fetchData()
       // make sure to catch any error
       .catch(console.error);
-  }, [loading]); // Only re-run the effect if [in brackets] changes
+  }, [isLoading]); // Only re-run the effect if [in brackets] changes
 
   //top one is correct to get into question screen after first startup
-  //let isFirstStartUp = questionsAnswered ? true : false;
-  let isFirstStartUp = questionsAnswered ? false : true;
+  let isFirstStartUp = questionsAnswered ? true : false;
+  //let isFirstStartUp = questionsAnswered ? false : true;
   const InitialRoute = isFirstStartUp ? "Bottomtab" : "StartScreen";
 
-  if (loading || (expoPushToken === "" && Platform.OS !== "web")) {
+  if (isLoading || (expoPushToken === "" && Platform.OS !== "web")) {
     return (
       <View
         style={{
@@ -129,7 +129,7 @@ function App() {
           name="StartScreen"
           component={StartScreen}
           options={{ headerShown: false }}
-          initialParams={{ englishMode }}
+          initialParams={{ englishMode, setEnglishMode, storeData }}
         />
         <Stack.Screen
           name="ExerciseScreen"
@@ -140,7 +140,7 @@ function App() {
         <Stack.Screen
           name="QuestionScreen"
           component={QuestionScreen}
-          initialParams={{ storeData, getData, englishMode }}
+          initialParams={{ storeData, getData, englishMode, questionsAnswered }}
           options={{ header: (props) => <LogoHeader /> }}
         />
         <Stack.Screen
