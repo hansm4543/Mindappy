@@ -9,6 +9,7 @@ const Home = ({ navigation, route }) => {
       style={{
         flex: 1,
         backgroundColor: "lightblue",
+        paddingVertical: "20%",
       }}
     >
       <View
@@ -17,7 +18,6 @@ const Home = ({ navigation, route }) => {
           justifyContent: "space-evenly",
           alignItems: "center",
           backgroundColor: "lightblue",
-          marginVertical: "30%",
         }}
       >
         <Button

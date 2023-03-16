@@ -93,7 +93,7 @@ const ResultScreen = ({ navigation, route }) => {
       answersCurrent !== undefined
         ? [
             {
-              name: "Initial",
+              name: englishMode ? "Initial" : "Esialgne",
               type: "bar",
               stack: "Ad",
               data: [
@@ -105,7 +105,7 @@ const ResultScreen = ({ navigation, route }) => {
               ],
             },
             {
-              name: "Current",
+              name: englishMode ? "Current" : "Hetkel",
               type: "bar",
               stack: "Ad",
               data: [
@@ -134,7 +134,7 @@ const ResultScreen = ({ navigation, route }) => {
           ]
         : [
             {
-              name: "Initial",
+              name: englishMode ? "Initial" : "Esialgne",
               type: "bar",
               stack: "Ad",
               data: [
