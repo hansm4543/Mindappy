@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Button, Dimensions } from "react-native";
 import React, { useState, useEffect, useRef } from "react";
-import RNEChartsPro from "react-native-echarts-pro";
+// import RNEChartsPro from "react-native-echarts-pro";
 
 const ResultScreen = ({ navigation, route }) => {
   const getData = route?.params?.getData;
@@ -178,7 +178,7 @@ const ResultScreen = ({ navigation, route }) => {
         onPress={() => navigation.navigate("QuestionScreen")}
       />
 
-      <RNEChartsPro height={400} with={300} option={option} />
+      {/* <RNEChartsPro height={400} with={300} option={option} /> */}
       <Button
         title={englishMode ? "Go back" : "Tagasi"}
         onPress={() => navigation.navigate("HomeTab")}
