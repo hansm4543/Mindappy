@@ -91,41 +91,44 @@ export const questionsListEng = [
 export const questionsListEst = [
   ["Ma mõistan, mis emotsioone ma praegu tunnen.", 0],
   [
-    "When I am experiencing uncomfortable emotions simply because I am tired, hungry, or sick, I am aware of this being the root cause of how I feel.",
+    "Kui kogen ebamugavaid emotsioone lihtsalt sellepärast, et olen väsinud, näljane või haige, olen teadlik, et see on minu enesetunde algpõhjus.",
     0,
   ],
   [
-    "When I experience strong emotions, I know which of my values and thoughts are triggering it.",
+    "Kui kogen tugevaid emotsioone, siis tean, millised minu väärtushinnangud ja mõtted neid vallandavad.",
     0,
   ],
   [
-    "When I am overcome with strong uncomfortable emotions, I know what to do to make myself feel better.",
+    "Kui mind valdavad tugevad ebamugavad emotsioonid, tean, mida teha, et end paremini tunda.",
     1,
   ],
   [
-    "If I need to get something done, I can resist distractions and focus on the important.",
+    "Kui mul on vaja midagi ära teha, suudan tähelepanu kõrvale juhtida ja keskenduda olulisele.",
     0,
   ],
-  ["When I set myself a goal, I don’t easily give up working towards it.", 1],
-  ["I notice when someone in the group is left out.", 0],
-  ["When I see someone suffering, I feel empathy for them.", 0],
   [
-    "When I meet people from backgrounds different from mine, I notice and appreciate those differences.",
+    "Kui sean endale eesmärgi, ei loobu ma selle nimel töötamisest kergesti.",
+    1,
+  ],
+  ["Märkan, kui keegi grupist välja jääb.", 0],
+  ["Kui näen kedagi kannatamas, tunnen tema vastu empaatiat.", 0],
+  [
+    "Kui kohtun inimestega, kellel on minu omast erinev taust, märkan ja hindan neid erinevusi.",
     1,
   ],
   [
-    "My ability to express my concerns about someone’s behavior without blaming them are",
+    "Minu võime väljendada oma muret kellegi käitumise pärast teda süüdistamata.",
     2,
   ],
   [
-    "It is easy for me to understand what other people are feeling based on their body language and the situation.",
+    "Mul on nende kehakeele ja olukorra põhjal lihtne aru saada, mida teised inimesed tunnevad.",
     1,
   ],
-  ["It is easy for me to cooperate with different people.", 1],
-  ["When making decisions, I consider the wider impact of my decisions.", 0],
+  ["Mul on lihtne erinevate inimestega koostööd teha.", 1],
+  ["Otsuste tegemisel võtan arvesse oma otsuste laiemat mõju.", 0],
   [
-    "When I have a problem, it is easy for me to identify the steps I need to take to solve it.",
+    "Kui mul on probleem, on mul lihtne kindlaks teha, milliseid samme selle lahendamiseks tegema pean.",
     1,
   ],
-  ["I am aware of how my actions impacts people around me.", 0],
+  ["Olen teadlik sellest, kuidas mu tegevus mõjutab inimesi minu ümber.", 0],
 ];

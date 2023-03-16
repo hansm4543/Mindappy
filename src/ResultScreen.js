@@ -9,23 +9,18 @@ const ResultScreen = ({ navigation, route }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [answersInitial, setAnswersInitial] = useState({
     firstSection: {
-      label: "Self-awareness",
       value: 5,
     },
     secondSection: {
-      label: "Self-management",
       value: 5,
     },
     thirdSection: {
-      label: "Social awareness",
       value: 5,
     },
     forthSection: {
-      label: "Relationship skills",
       value: 5,
     },
     fifthSection: {
-      label: "Responsible decision making",
       value: 5,
     },
   });
@@ -70,13 +65,21 @@ const ResultScreen = ({ navigation, route }) => {
           rotate: 60,
           fontWeight: "bold",
         },
-        data: [
-          "Self-awareness",
-          "Self-management",
-          "Social awareness",
-          "Relationship skills",
-          "Responsible decision making",
-        ],
+        data: englishMode
+          ? [
+              "Self-awareness",
+              "Self-management",
+              "Social awareness",
+              "Relationship skills",
+              "Responsible decision making",
+            ]
+          : [
+              "Eneseteadvus",
+              "Enesejuhtimine",
+              "Sotsiaalne teadlikkus",
+              "Suhteoskused",
+              "Vastutustundlik otsuste tegemine",
+            ],
       },
     ],
     yAxis: [

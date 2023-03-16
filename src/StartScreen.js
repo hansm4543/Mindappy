@@ -71,11 +71,11 @@ function StartScreen({ navigation, route }) {
           onPress={() => changeLanguage()}
         />
       </View>
-
+      {/* 
       <Button
         title={englishMode ? "Answered" : "Vastatud"}
         onPress={() => storeData("@answered", { value: false })}
-      />
+      /> */}
       <Button
         title={englishMode ? "Enter The Application" : "Sisenen rakendusse"}
         onPress={() => navigation.navigate("QuestionScreen")}

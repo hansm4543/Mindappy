@@ -99,23 +99,18 @@ function StartScreen({ navigation, route }) {
       }
       const object = {
         firstSection: {
-          label: "Self-awareness",
           value: Math.round((firstSection / 15) * 100 * 100) / 100,
         },
         secondSection: {
-          label: "Self-management",
           value: Math.round((secondSection / 15) * 100 * 100) / 100,
         },
         thirdSection: {
-          label: "Social awareness",
           value: Math.round((thirdSection / 15) * 100 * 100) / 100,
         },
         forthSection: {
-          label: "Relationship skills",
           value: Math.round((forthSection / 15) * 100 * 100) / 100,
         },
         fifthSection: {
-          label: "Responsible decision making",
           value: Math.round((fifthSection / 15) * 100 * 100) / 100,
         },
       };
@@ -140,23 +135,25 @@ function StartScreen({ navigation, route }) {
     let boolean = false;
     switch (i) {
       case 0:
-        text = "Self-awareness";
+        text = englishMode ? "Self-awareness" : "Eneseteadvus";
         boolean = true;
         break;
       case 3:
-        text = "Self-management";
+        text = englishMode ? "Self-management" : "Enesejuhtimine";
         boolean = true;
         break;
       case 6:
-        text = "Social awareness";
+        text = englishMode ? "Social awareness" : "Sotsiaalne teadlikkus";
         boolean = true;
         break;
       case 9:
         boolean = true;
-        text = "Relationship skills";
+        text = englishMode ? "Relationship skills" : "Suhteoskused";
         break;
       case 12:
-        text = "Responsible decision making";
+        text = englishMode
+          ? "Responsible decision making"
+          : "Vastutustundlik otsuste tegemine";
         boolean = true;
         break;
       default:
