@@ -3,7 +3,7 @@ import { View, Image, SafeAreaView } from "react-native";
 
 const LogoHeader = () => {
   return (
-    <SafeAreaView style={{ marginTop: 30 }}>
+    <SafeAreaView>
       <View
         style={{ alignItems: "center", backgroundColor: "white", height: 70 }}
       >
