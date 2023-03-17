@@ -64,114 +64,6 @@ const ResultScreen = ({ navigation, route }) => {
     }
   }, [isLoading]); // Only re-run the effect if [in brackets] changes
 
-  const option = {
-    tooltip: false,
-    legend: {},
-    grid: {
-      left: "10%",
-      right: "10%",
-      bottom: "3%",
-      containLabel: true,
-    },
-    xAxis: [
-      {
-        type: "category",
-        axisLabel: {
-          rotate: 60,
-          fontWeight: "bold",
-        },
-        data: englishMode
-          ? [
-              "Self-awareness",
-              "Self-management",
-              "Social awareness",
-              "Relationship skills",
-              "Responsible decision making",
-            ]
-          : [
-              "Eneseteadvus",
-              "Enesejuhtimine",
-              "Sotsiaalne teadlikkus",
-              "Suhteoskused",
-              "Vastutustundlik otsuste tegemine",
-            ],
-      },
-    ],
-    yAxis: [
-      {
-        type: "value",
-        max: 100,
-        splitNumber: 10,
-      },
-    ],
-    series:
-      answersCurrent !== undefined
-        ? [
-            {
-              name: englishMode ? "Initial" : "Esialgne",
-              type: "bar",
-              stack: "Ad",
-              data: [
-                answersInitial.firstSection.value,
-                answersInitial.secondSection.value,
-                answersInitial.thirdSection.value,
-                answersInitial.forthSection.value,
-                answersInitial.fifthSection.value,
-              ],
-            },
-            {
-              name: englishMode ? "Current" : "Hetkel",
-              type: "bar",
-              stack: "Ad",
-              data: [
-                isLoading
-                  ? answersCurrent.firstSection.value
-                  : answersCurrent.firstSection.value -
-                    answersInitial.firstSection.value,
-                isLoading
-                  ? answersCurrent.secondSection.value
-                  : answersCurrent.secondSection.value -
-                    answersInitial.secondSection.value,
-                isLoading
-                  ? answersCurrent.thirdSection.value
-                  : answersCurrent.thirdSection.value -
-                    answersInitial.thirdSection.value,
-                isLoading
-                  ? answersCurrent.forthSection.value
-                  : answersCurrent.forthSection.value -
-                    answersInitial.forthSection.value,
-                isLoading
-                  ? answersCurrent.fifthSection.value
-                  : answersCurrent.fifthSection.value -
-                    answersInitial.fifthSection.value,
-              ],
-            },
-          ]
-        : [
-            {
-              name: englishMode ? "Initial" : "Esialgne",
-              type: "bar",
-              stack: "Ad",
-              data: [
-                answersInitial.firstSection.value,
-                answersInitial.secondSection.value,
-                answersInitial.thirdSection.value,
-                answersInitial.forthSection.value,
-                answersInitial.fifthSection.value,
-              ],
-            },
-          ],
-  };
-  const data = {
-    labels: ["Test1", "Test2"],
-    legend: ["L1", "L2", "L3"],
-    data: [
-      [60, 60, 60],
-      [30, 30, 60],
-    ],
-    barColors: ["#dfe4ea", "#ced6e0", "#a4b0be"],
-  };
-
   if (isLoading) {
     return (
       <View
@@ -184,6 +76,9 @@ const ResultScreen = ({ navigation, route }) => {
       ></View>
     );
   }
+
+  console.log(answersCurrent);
+  console.log(answersInitial);
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
@@ -205,10 +100,10 @@ const ResultScreen = ({ navigation, route }) => {
           />
 
           <StackedBarChart
-            verticalLabelRotation={-60} //Degree to rotate
-            horizontalLabelRotation={-60} //Degree to rotate
-            xLabelsOffset={20}
-            showLegend={0}
+            //verticalLabelRotation={-60} //Degree to rotate
+            //horizontalLabelRotation={-60} //Degree to rotate
+            //xLabelsOffset={20}
+            //showLegend={0}
             withVerticalLabels={true}
             withHorizontalLabels={true}
             data={{
@@ -218,7 +113,7 @@ const ResultScreen = ({ navigation, route }) => {
                     "Self-management",
                     "Social awareness",
                     "Relationship skills",
-                    "Responsible decision making",
+                    "Responsibility",
                   ]
                 : [
                     "Eneseteadvus",
@@ -228,17 +123,92 @@ const ResultScreen = ({ navigation, route }) => {
                     "Vastutustundlikus",
                   ],
               //legend: ["L1", "L2", "L3"],
-              data: [
-                [10, 10, 80],
-                [30, 30],
-                [30, 30],
-                [30, 30],
-                [30, 30],
-              ],
-              barColors: ["#dfe4ea", "#ced6e0", "rgba(100, 100, 100, 0)"],
+              // data: [
+              //   [10, 10, 80],
+              //   [30, 30],
+              //   [30, 30],
+              //   [30, 30],
+              //   [30, 30],
+              // ],
+
+              data:
+                answersCurrent !== undefined
+                  ? [
+                      [
+                        answersInitial.firstSection.value,
+                        answersCurrent.firstSection.value -
+                          answersInitial.firstSection.value,
+                        100 -
+                          answersInitial.firstSection.value -
+                          (answersCurrent.firstSection.value -
+                            answersInitial.firstSection.value),
+                      ],
+                      [
+                        answersInitial.secondSection.value,
+                        answersCurrent.secondSection.value -
+                          answersInitial.secondSection.value,
+                        100 -
+                          answersInitial.secondSection.value -
+                          (answersCurrent.secondSection.value -
+                            answersInitial.secondSection.value),
+                      ],
+                      [
+                        answersInitial.thirdSection.value,
+                        answersCurrent.thirdSection.value -
+                          answersInitial.thirdSection.value,
+                        100 -
+                          answersInitial.thirdSection.value -
+                          (answersCurrent.thirdSection.value -
+                            answersInitial.thirdSection.value),
+                      ],
+                      [
+                        answersInitial.forthSection.value,
+                        answersCurrent.forthSection.value -
+                          answersInitial.forthSection.value,
+                        100 -
+                          answersInitial.forthSection.value -
+                          (answersCurrent.forthSection.value -
+                            answersInitial.forthSection.value),
+                      ],
+                      [
+                        answersInitial.fifthSection.value,
+                        answersCurrent.fifthSection.value -
+                          answersInitial.fifthSection.value,
+                        100 -
+                          answersInitial.fifthSection.value -
+                          (answersCurrent.fifthSection.value -
+                            answersInitial.fifthSection.value),
+                      ],
+                    ]
+                  : [
+                      [
+                        answersInitial.firstSection.value,
+                        100 - answersInitial.firstSection.value,
+                      ],
+                      [
+                        answersInitial.secondSection.value,
+                        100 - answersInitial.secondSection.value,
+                      ],
+                      [
+                        answersInitial.thirdSection.value,
+                        100 - answersInitial.thirdSection.value,
+                      ],
+                      [
+                        answersInitial.forthSection.value,
+                        100 - answersInitial.forthSection.value,
+                      ],
+                      [
+                        answersInitial.fifthSection.value,
+                        100 - answersInitial.fifthSection.value,
+                      ],
+                    ],
+              barColors:
+                answersCurrent !== undefined
+                  ? ["lightblue", "lightgreen", "rgba(100, 100, 100, 0)"]
+                  : ["lightblue", "rgba(100, 100, 100, 0)"],
             }}
-            width={Dimensions.get("window").width - 16}
-            height={500}
+            width={Dimensions.get("window").width - 50}
+            height={600}
             chartConfig={{
               propsForLabels: {
                 style: {
@@ -248,31 +218,31 @@ const ResultScreen = ({ navigation, route }) => {
               propsForHorizontalLabels: {
                 style: {
                   opacity: 1,
+                  fontWeight: "bold",
                 },
               },
-              backgroundColor: "lightblue",
-              backgroundGradientFrom: "lightblue",
-              backgroundGradientTo: "lightblue",
+              backgroundColor: "white",
+              backgroundGradientFrom: "white",
+              backgroundGradientTo: "white",
               decimalPlaces: 0,
               color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
               style: {
                 borderRadius: 16,
               },
               propsForVerticalLabels: {
+                rotation: -45,
+                translateX: -30,
+                translateY: 20,
                 style: {
                   opacity: 1,
                   fontWeight: "bold",
-                  transform: [
-                    { rotate: "-70deg" },
-                    { translateY: "-10px" },
-                    { translateX: "-20px" },
-                  ],
                 },
               },
-              barRadius: 100,
+              // barRadius: 100,
             }}
             style={{
               marginVertical: 50,
+              paddingHorizontal: 50,
               borderRadius: 16,
             }}
           />
