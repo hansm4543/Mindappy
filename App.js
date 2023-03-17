@@ -219,7 +219,7 @@ async function schedulePushNotification(
         body: "Mindappy",
       },
       trigger: {
-        seconds: 15,
+        seconds: 5,
         repeats: false,
       },
     });

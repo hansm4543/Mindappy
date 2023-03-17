@@ -81,7 +81,7 @@ const ResultScreen = ({ navigation, route }) => {
             justifyContent: "space-evenly",
             alignItems: "center",
             backgroundColor: "lightblue",
-            paddingBottom: 20,
+            paddingBottom: 100,
           }}
         >
           <Button
@@ -267,7 +267,6 @@ const styles = StyleSheet.create({
     backgroundColor: "lightblue",
   },
   scrollView: {
-    paddingVertical: 20,
     paddingHorizontal: 20,
     paddingVertical: 20,
     textAlign: "center",

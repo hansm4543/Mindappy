@@ -317,7 +317,7 @@ const styles = StyleSheet.create({
   },
   buttonView: {
     marginTop: 30,
-    marginBottom: 30,
+    marginBottom: 70,
     width: "100%",
   },
 });
