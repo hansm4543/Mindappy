@@ -57,12 +57,13 @@ function BottomTabNavigator({ navigation, route }) {
       })}
     >
       <Tab.Screen
-        name="NotificationsTab"
-        component={Notifications}
+        name="SettingsTab"
+        component={Settings}
         initialParams={{
-          expoPushToken,
-          schedulePushNotification,
-          englishMode: englishModeBottomTab,
+          englishModeBottomTab,
+          setEnglishMode,
+          setEnglishModeBottomTab,
+          storeData,
         }}
       />
       <Tab.Screen
@@ -71,13 +72,12 @@ function BottomTabNavigator({ navigation, route }) {
         initialParams={{ englishMode: englishModeBottomTab }}
       />
       <Tab.Screen
-        name="SettingsTab"
-        component={Settings}
+        name="NotificationsTab"
+        component={Notifications}
         initialParams={{
-          englishModeBottomTab,
-          setEnglishMode,
-          setEnglishModeBottomTab,
-          storeData,
+          expoPushToken,
+          schedulePushNotification,
+          englishMode: englishModeBottomTab,
         }}
       />
     </Tab.Navigator>

@@ -21,13 +21,13 @@ function StartScreen({ navigation, route }) {
   const englishMode = route?.params?.englishMode;
   const questionsAnswered = route?.params?.questionsAnswered;
 
-  console.log(questionsAnswered);
+  //console.log(questionsAnswered);
 
   const answers = englishMode ? answersEng : answersEst;
 
   const questionsList = englishMode ? questionsListEng : questionsListEst;
 
-  const [valueArr, setValue] = useState([
+  const [valueArr, setValueArr] = useState([
     null,
     null,
     null,
@@ -49,7 +49,7 @@ function StartScreen({ navigation, route }) {
   const setValueHandler = (value, i) => {
     const newArr = [...valueArr];
     newArr[i] = value;
-    setValue(newArr);
+    setValueArr(newArr);
   };
 
   const submit = () => {
@@ -123,6 +123,23 @@ function StartScreen({ navigation, route }) {
         storeData("@answersInitial", object);
         navigation.navigate("Bottomtab");
       }
+      setValueArr([
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+      ]);
     } else {
       setError(
         englishMode ? "Fill in all the Fields" : "Palun täida kõik lüngad"

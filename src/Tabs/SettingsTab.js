@@ -6,7 +6,6 @@ import {
   ScrollView,
   SafeAreaView,
 } from "react-native";
-import React from "react";
 
 const Settings = ({ navigation, route }) => {
   const englishModeBottomTab = route?.params?.englishModeBottomTab;
@@ -22,7 +21,6 @@ const Settings = ({ navigation, route }) => {
     console.log("reset");
 
     navigation.reset({
-      index: 0,
       routes: [{ name: "SettingsTab" }],
     });
   };
