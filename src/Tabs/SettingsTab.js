@@ -1,24 +1,15 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 
 const Settings = ({ navigation, route }) => {
   const englishModeBottomTab = route?.params?.englishModeBottomTab;
   const setEnglishMode = route?.params?.setEnglishMode;
   const setEnglishModeBottomTab = route?.params?.setEnglishModeBottomTab;
   const storeData = route?.params?.storeData;
-  console.log(navigation);
 
   const changeLanguage = () => {
     storeData("@englishMode", { value: englishModeBottomTab ? false : true });
     setEnglishMode(englishModeBottomTab ? false : true);
     setEnglishModeBottomTab(englishModeBottomTab ? false : true);
-    console.log("reset");
 
     navigation.reset({
       routes: [{ name: "SettingsTab" }],

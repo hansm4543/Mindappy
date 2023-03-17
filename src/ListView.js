@@ -1,8 +1,7 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const ExerciseScreen = ({ listData }) => {
-  console.log(listData);
+const ListView = ({ listData }) => {
   return (
     <View>
       {listData.map((listElement, i) => (
@@ -17,7 +16,7 @@ const ExerciseScreen = ({ listData }) => {
   );
 };
 
-export default ExerciseScreen;
+export default ListView;
 
 const styles = StyleSheet.create({
   bold: {

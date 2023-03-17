@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import ListView from "./ListView";
 
-const ExerciseScreen = ({ exerciseData }) => {
+const SingleExercise = ({ exerciseData }) => {
   return (
     <View>
       {exerciseData.map((exercise, i) => (
@@ -12,7 +12,6 @@ const ExerciseScreen = ({ exerciseData }) => {
           ) : (
             <View style={{ flexDirection: "row" }}>
               <Text style={styles[exercise.fontWeight]}>{exercise.data}</Text>
-              {/* <Text>{"\n"}</Text> */}
             </View>
           )}
         </View>
@@ -21,7 +20,7 @@ const ExerciseScreen = ({ exerciseData }) => {
   );
 };
 
-export default ExerciseScreen;
+export default SingleExercise;
 
 const styles = StyleSheet.create({
   bold: {

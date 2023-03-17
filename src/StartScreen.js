@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Button,
-  View,
-  Image,
-  Text,
-  BackHandler,
-  StyleSheet,
-} from "react-native";
-import { useState, useEffect, useRef } from "react";
+import { Button, View, Image, Text, StyleSheet } from "react-native";
 
 function StartScreen({ navigation, route }) {
   const englishMode = route?.params?.englishMode;

@@ -16,12 +16,13 @@ import {
   questionsListEst,
 } from "./../questionData";
 
-function StartScreen({ navigation, route }) {
+function QuestionScreen({ navigation, route }) {
   const storeData = route?.params?.storeData;
   const englishMode = route?.params?.englishMode;
   const questionsAnswered = route?.params?.questionsAnswered;
+  const setQuestionsAnswered = route?.params?.setQuestionsAnswered;
 
-  //console.log(questionsAnswered);
+  //console.log("mees", questionsAnswered);
 
   const answers = englishMode ? answersEng : answersEst;
 
@@ -114,13 +115,17 @@ function StartScreen({ navigation, route }) {
           value: Math.round((fifthSection / 15) * 100 * 100) / 100,
         },
       };
-      console.log(object);
+      //console.log(object);
       if (questionsAnswered) {
         storeData("@answersCurrent", object);
-        navigation.navigate("ResultScreen");
+        //navigation.navigate("ResultScreen");
+        navigation.reset({
+          routes: [{ name: "ResultScreen" }],
+        });
       } else {
         storeData("@answered", { value: true });
         storeData("@answersInitial", object);
+        setQuestionsAnswered(true);
         navigation.navigate("Bottomtab");
       }
       setValueArr([
@@ -181,7 +186,7 @@ function StartScreen({ navigation, route }) {
     return [boolean, text];
   };
 
-  console.log(valueArr);
+  //console.log(valueArr);
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
@@ -214,7 +219,7 @@ function StartScreen({ navigation, route }) {
             <Dropdown
               style={[styles.dropdown]}
               data={answers[questionData[1]]}
-              maxHeight={200}
+              maxHeight={300}
               labelField="label"
               valueField="value"
               placeholder={"..."}
@@ -251,7 +256,7 @@ function StartScreen({ navigation, route }) {
   );
 }
 
-export default StartScreen;
+export default QuestionScreen;
 
 const styles = StyleSheet.create({
   safeAreaView: {
@@ -314,8 +319,5 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 30,
     width: "100%",
-    // alignItems: "center",
-    // textAlign: "center",
-    // alignSelf: "center",
   },
 });

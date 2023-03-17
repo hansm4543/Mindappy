@@ -1,21 +1,13 @@
 import {
   StyleSheet,
-  Text,
   View,
   Button,
   Dimensions,
   ScrollView,
   SafeAreaView,
 } from "react-native";
-import React, { useState, useEffect, useRef } from "react";
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart,
-} from "react-native-chart-kit";
+import React, { useState, useEffect } from "react";
+import { StackedBarChart } from "react-native-chart-kit";
 
 const ResultScreen = ({ navigation, route }) => {
   const getData = route?.params?.getData;
@@ -77,8 +69,8 @@ const ResultScreen = ({ navigation, route }) => {
     );
   }
 
-  console.log(answersCurrent);
-  console.log(answersInitial);
+  // console.log(answersInitial);
+  // console.log(answersCurrent);
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
@@ -96,7 +88,12 @@ const ResultScreen = ({ navigation, route }) => {
             title={
               englishMode ? "Take assessment again" : "Tee taseme testi uuesti"
             }
-            onPress={() => navigation.navigate("QuestionScreen")}
+            //onPress={() => navigation.navigate("QuestionScreen")}
+            onPress={() =>
+              navigation.reset({
+                routes: [{ name: "QuestionScreen" }],
+              })
+            }
           />
 
           <StackedBarChart
@@ -249,7 +246,12 @@ const ResultScreen = ({ navigation, route }) => {
 
           <Button
             title={englishMode ? "Go back" : "Tagasi"}
-            onPress={() => navigation.navigate("HomeTab")}
+            //onPress={() => navigation.navigate("HomeTab")}
+            onPress={() =>
+              navigation.reset({
+                routes: [{ name: "Bottomtab" }],
+              })
+            }
           />
         </View>
       </ScrollView>
@@ -265,7 +267,7 @@ const styles = StyleSheet.create({
     backgroundColor: "lightblue",
   },
   scrollView: {
-    marginBottom: 0,
+    paddingVertical: 20,
     paddingHorizontal: 20,
     paddingVertical: 20,
     textAlign: "center",

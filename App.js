@@ -140,7 +140,13 @@ function App() {
         <Stack.Screen
           name="QuestionScreen"
           component={QuestionScreen}
-          initialParams={{ storeData, getData, englishMode, questionsAnswered }}
+          initialParams={{
+            storeData,
+            getData,
+            englishMode,
+            questionsAnswered,
+            setQuestionsAnswered,
+          }}
           options={{ header: (props) => <LogoHeader /> }}
         />
         <Stack.Screen
