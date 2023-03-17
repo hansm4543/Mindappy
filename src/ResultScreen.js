@@ -1,6 +1,21 @@
-import { StyleSheet, Text, View, Button, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Dimensions,
+  ScrollView,
+  SafeAreaView,
+} from "react-native";
 import React, { useState, useEffect, useRef } from "react";
-// import RNEChartsPro from "react-native-echarts-pro";
+import {
+  LineChart,
+  BarChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+  StackedBarChart,
+} from "react-native-chart-kit";
 
 const ResultScreen = ({ navigation, route }) => {
   const getData = route?.params?.getData;
@@ -147,6 +162,15 @@ const ResultScreen = ({ navigation, route }) => {
             },
           ],
   };
+  const data = {
+    labels: ["Test1", "Test2"],
+    legend: ["L1", "L2", "L3"],
+    data: [
+      [60, 60, 60],
+      [30, 30, 60],
+    ],
+    barColors: ["#dfe4ea", "#ced6e0", "#a4b0be"],
+  };
 
   if (isLoading) {
     return (
@@ -162,31 +186,119 @@ const ResultScreen = ({ navigation, route }) => {
   }
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "space-evenly",
-        alignItems: "center",
-        backgroundColor: "lightblue",
-        paddingBottom: 20,
-      }}
-    >
-      <Button
-        title={
-          englishMode ? "Take assessment again" : "Tee taseme testi uuesti"
-        }
-        onPress={() => navigation.navigate("QuestionScreen")}
-      />
+    <SafeAreaView style={styles.safeAreaView}>
+      <ScrollView style={styles.scrollView}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "space-evenly",
+            alignItems: "center",
+            backgroundColor: "lightblue",
+            paddingBottom: 20,
+          }}
+        >
+          <Button
+            title={
+              englishMode ? "Take assessment again" : "Tee taseme testi uuesti"
+            }
+            onPress={() => navigation.navigate("QuestionScreen")}
+          />
 
-      {/* <RNEChartsPro height={400} with={300} option={option} /> */}
-      <Button
-        title={englishMode ? "Go back" : "Tagasi"}
-        onPress={() => navigation.navigate("HomeTab")}
-      />
-    </View>
+          <StackedBarChart
+            verticalLabelRotation={-60} //Degree to rotate
+            horizontalLabelRotation={-60} //Degree to rotate
+            xLabelsOffset={20}
+            showLegend={0}
+            withVerticalLabels={true}
+            withHorizontalLabels={true}
+            data={{
+              labels: englishMode
+                ? [
+                    "Self-awareness",
+                    "Self-management",
+                    "Social awareness",
+                    "Relationship skills",
+                    "Responsible decision making",
+                  ]
+                : [
+                    "Eneseteadvus",
+                    "Enesejuhtimine",
+                    "Sotsiaalne teadlikkus",
+                    "Suhteoskused",
+                    "Vastutustundlikus",
+                  ],
+              //legend: ["L1", "L2", "L3"],
+              data: [
+                [10, 10, 80],
+                [30, 30],
+                [30, 30],
+                [30, 30],
+                [30, 30],
+              ],
+              barColors: ["#dfe4ea", "#ced6e0", "rgba(100, 100, 100, 0)"],
+            }}
+            width={Dimensions.get("window").width - 16}
+            height={500}
+            chartConfig={{
+              propsForLabels: {
+                style: {
+                  opacity: 0,
+                },
+              },
+              propsForHorizontalLabels: {
+                style: {
+                  opacity: 1,
+                },
+              },
+              backgroundColor: "lightblue",
+              backgroundGradientFrom: "lightblue",
+              backgroundGradientTo: "lightblue",
+              decimalPlaces: 0,
+              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+              style: {
+                borderRadius: 16,
+              },
+              propsForVerticalLabels: {
+                style: {
+                  opacity: 1,
+                  fontWeight: "bold",
+                  transform: [
+                    { rotate: "-70deg" },
+                    { translateY: "-10px" },
+                    { translateX: "-20px" },
+                  ],
+                },
+              },
+              barRadius: 100,
+            }}
+            style={{
+              marginVertical: 50,
+              borderRadius: 16,
+            }}
+          />
+
+          <Button
+            title={englishMode ? "Go back" : "Tagasi"}
+            onPress={() => navigation.navigate("HomeTab")}
+          />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 export default ResultScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  safeAreaView: {
+    flex: 1,
+    backgroundColor: "lightblue",
+  },
+  scrollView: {
+    marginBottom: 0,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    textAlign: "center",
+    borderRadius: 10,
+  },
+});
