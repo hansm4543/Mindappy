@@ -102,8 +102,8 @@ function App() {
   }, [isLoading]); // Only re-run the effect if [in brackets] changes
 
   //top one is correct to get into question screen after first startup
-  //let isFirstStartUp = questionsAnswered ? true : false;
-  let isFirstStartUp = questionsAnswered ? false : true;
+  let isFirstStartUp = questionsAnswered ? true : false;
+  //let isFirstStartUp = questionsAnswered ? false : true;
   const InitialRoute = isFirstStartUp ? "Bottomtab" : "StartScreen";
 
   //if (isLoading || (expoPushToken === "" && Platform.OS !== "web")) {
