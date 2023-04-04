@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
+import { backgroundColor } from "./../../constants";
 
 const Settings = ({ navigation, route }) => {
   const englishModeBottomTab = route?.params?.englishModeBottomTab;
@@ -20,7 +21,7 @@ const Settings = ({ navigation, route }) => {
     <View
       style={{
         flex: 1,
-        backgroundColor: "lightblue",
+        backgroundColor: backgroundColor,
       }}
     >
       <View
@@ -28,17 +29,25 @@ const Settings = ({ navigation, route }) => {
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "lightblue",
+          backgroundColor: backgroundColor,
           marginVertical: "30%",
         }}
       >
         <Text style={[styles.font]}>
           {englishModeBottomTab ? "Language" : "Keel"}
         </Text>
-        <Button
+        {/* <Button
           title={englishModeBottomTab ? "English" : "Eesti"}
           onPress={() => changeLanguage()}
-        />
+        /> */}
+        <TouchableOpacity
+          style={styles.buttonOutside}
+          onPress={() => changeLanguage()}
+        >
+          <Text style={styles.buttonText}>
+            {englishModeBottomTab ? "English" : "Eesti"}
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -48,6 +57,20 @@ const styles = StyleSheet.create({
   font: {
     fontSize: 25,
     marginBottom: 20,
+  },
+  buttonOutside: {
+    alignItems: "center",
+    backgroundColor: "#FFF",
+    padding: 10,
+    width: 200,
+    borderRadius: 10,
+    borderColor: "#a9a9a9",
+    borderWidth: 2,
+  },
+  buttonText: {
+    fontWeight: "bold",
+    fontSize: 17,
+    color: "#838383",
   },
 });
 

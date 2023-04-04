@@ -15,6 +15,7 @@ import {
   questionsListEng,
   questionsListEst,
 } from "./../questionData";
+import { backgroundColor } from "./../constants";
 
 function QuestionScreen({ navigation, route }) {
   const storeData = route?.params?.storeData;
@@ -261,7 +262,7 @@ export default QuestionScreen;
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
-    backgroundColor: "lightblue",
+    backgroundColor: backgroundColor,
   },
   scrollView: {
     marginBottom: 0,

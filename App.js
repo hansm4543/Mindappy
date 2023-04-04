@@ -12,6 +12,7 @@ import LogoHeader from "./src/LogoHeader";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
+import { backgroundColor } from "./constants";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -105,14 +106,15 @@ function App() {
   //let isFirstStartUp = questionsAnswered ? false : true;
   const InitialRoute = isFirstStartUp ? "Bottomtab" : "StartScreen";
 
-  if (isLoading || (expoPushToken === "" && Platform.OS !== "web")) {
+  //if (isLoading || (expoPushToken === "" && Platform.OS !== "web")) {
+  if (isLoading) {
     return (
       <View
         style={{
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "lightblue",
+          backgroundColor: backgroundColor,
         }}
       ></View>
     );

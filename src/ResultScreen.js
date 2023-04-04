@@ -5,9 +5,12 @@ import {
   Dimensions,
   ScrollView,
   SafeAreaView,
+  TouchableOpacity,
+  Text,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { StackedBarChart } from "react-native-chart-kit";
+import { backgroundColor } from "./../constants";
 
 const ResultScreen = ({ navigation, route }) => {
   const getData = route?.params?.getData;
@@ -63,7 +66,7 @@ const ResultScreen = ({ navigation, route }) => {
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "lightblue",
+          backgroundColor: backgroundColor,
         }}
       ></View>
     );
@@ -80,11 +83,12 @@ const ResultScreen = ({ navigation, route }) => {
             flex: 1,
             justifyContent: "space-evenly",
             alignItems: "center",
-            backgroundColor: "lightblue",
+            backgroundColor: backgroundColor,
             paddingBottom: 100,
+            paddingTop: 50,
           }}
         >
-          <Button
+          {/* <Button
             title={
               englishMode ? "Take assessment again" : "Tee taseme testi uuesti"
             }
@@ -94,7 +98,21 @@ const ResultScreen = ({ navigation, route }) => {
                 routes: [{ name: "QuestionScreen" }],
               })
             }
-          />
+          /> */}
+          <TouchableOpacity
+            style={styles.buttonOutside}
+            onPress={() =>
+              navigation.reset({
+                routes: [{ name: "QuestionScreen" }],
+              })
+            }
+          >
+            <Text style={styles.buttonText}>
+              {englishMode
+                ? "Take assessment again"
+                : "Tee taseme testi uuesti"}
+            </Text>
+          </TouchableOpacity>
 
           <StackedBarChart
             //verticalLabelRotation={-60} //Degree to rotate
@@ -204,7 +222,7 @@ const ResultScreen = ({ navigation, route }) => {
                   ? ["lightblue", "lightgreen", "rgba(100, 100, 100, 0)"]
                   : ["lightblue", "rgba(100, 100, 100, 0)"],
             }}
-            width={Dimensions.get("window").width - 50}
+            width={Dimensions.get("window").width - 25}
             height={600}
             chartConfig={{
               propsForLabels: {
@@ -244,7 +262,7 @@ const ResultScreen = ({ navigation, route }) => {
             }}
           />
 
-          <Button
+          {/* <Button
             title={englishMode ? "Go back" : "Tagasi"}
             //onPress={() => navigation.navigate("HomeTab")}
             onPress={() =>
@@ -252,7 +270,19 @@ const ResultScreen = ({ navigation, route }) => {
                 routes: [{ name: "Bottomtab" }],
               })
             }
-          />
+          /> */}
+          <TouchableOpacity
+            style={styles.buttonOutside}
+            onPress={() =>
+              navigation.reset({
+                routes: [{ name: "Bottomtab" }],
+              })
+            }
+          >
+            <Text style={styles.buttonText}>
+              {englishMode ? "Go back" : "Tagasi"}
+            </Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -264,12 +294,26 @@ export default ResultScreen;
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
-    backgroundColor: "lightblue",
+    backgroundColor: backgroundColor,
   },
   scrollView: {
     paddingHorizontal: 20,
     paddingVertical: 20,
     textAlign: "center",
     borderRadius: 10,
+  },
+  buttonOutside: {
+    alignItems: "center",
+    backgroundColor: "#838383",
+    padding: 10,
+    width: 200,
+    borderRadius: 10,
+    //borderColor: "#a9a9a9",
+    //borderWidth: 2,
+  },
+  buttonText: {
+    fontWeight: "bold",
+    fontSize: 17,
+    color: "#FFF",
   },
 });

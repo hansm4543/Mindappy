@@ -4,10 +4,13 @@ import {
   Button,
   SafeAreaView,
   ScrollView,
+  TouchableOpacity,
+  Text,
 } from "react-native";
 import React, { useState } from "react";
 import { ExercisesList } from "./../exerciseData";
 import SingleExercise from "./SingleExercise";
+import { backgroundColor } from "./../constants";
 
 const ExerciseScreen = ({ navigation, route }) => {
   const englishMode = route?.params?.englishMode;
@@ -19,7 +22,7 @@ const ExerciseScreen = ({ navigation, route }) => {
       <ScrollView
         style={{
           flex: 1,
-          backgroundColor: "lightblue",
+          backgroundColor: backgroundColor,
           marginHorizontal: 16,
           paddingVertical: 20,
         }}
@@ -31,27 +34,59 @@ const ExerciseScreen = ({ navigation, route }) => {
       <View style={{ height: 100 }}>
         <View style={styles.fixToText}>
           {exerciseIndex === 0 ? (
-            <Button
-              title={englishMode ? "Exit" : "Välju"}
+            // <Button
+            //   title={englishMode ? "Exit" : "Välju"}
+            //   onPress={() => navigation.navigate("HomeTab")}
+            // />
+            <TouchableOpacity
+              style={styles.buttonOutside}
               onPress={() => navigation.navigate("HomeTab")}
-            />
+            >
+              <Text style={styles.buttonText}>
+                {englishMode ? "Exit" : "Välju"}
+              </Text>
+            </TouchableOpacity>
           ) : (
-            <Button
-              title={englishMode ? "Go back" : "Eelmine"}
+            // <Button
+            //   title={englishMode ? "Go back" : "Eelmine"}
+            //   onPress={() => setExerciseIndex(exerciseIndex - 1)}
+            // />
+            <TouchableOpacity
+              style={styles.buttonOutside}
               onPress={() => setExerciseIndex(exerciseIndex - 1)}
-            />
+            >
+              <Text style={styles.buttonText}>
+                {englishMode ? "Go back" : "Eelmine"}
+              </Text>
+            </TouchableOpacity>
           )}
 
           {exerciseIndex === ExercisesList.length - 1 ? (
-            <Button
-              title={englishMode ? "Exit" : "Välju"}
+            // <Button
+            //   title={englishMode ? "Exit" : "Välju"}
+            //   onPress={() => navigation.navigate("HomeTab")}
+            // />
+            <TouchableOpacity
+              style={styles.buttonOutside}
               onPress={() => navigation.navigate("HomeTab")}
-            />
+            >
+              <Text style={styles.buttonText}>
+                {englishMode ? "Exit" : "Välju"}
+              </Text>
+            </TouchableOpacity>
           ) : (
-            <Button
-              title={englishMode ? "Go Next" : "Järgmine"}
+            // <Button
+            //   title={englishMode ? "Go Next" : "Järgmine"}
+            //   onPress={() => setExerciseIndex(exerciseIndex + 1)}
+            // />
+            <TouchableOpacity
+              style={styles.buttonOutside}
               onPress={() => setExerciseIndex(exerciseIndex + 1)}
-            />
+            >
+              <Text style={styles.buttonText}>
+                {englishMode ? "Go Next" : "Järgmine"}
+              </Text>
+            </TouchableOpacity>
           )}
         </View>
       </View>
@@ -63,7 +98,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    backgroundColor: "lightblue",
+    backgroundColor: backgroundColor,
   },
   title: {
     textAlign: "center",
@@ -80,6 +115,20 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     borderBottomColor: "#737373",
     borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  buttonOutside: {
+    alignItems: "center",
+    backgroundColor: "#838383",
+    padding: 10,
+    width: 100,
+    borderRadius: 10,
+    //borderColor: "#a9a9a9",
+    //borderWidth: 2,
+  },
+  buttonText: {
+    fontWeight: "bold",
+    fontSize: 17,
+    color: "#FFF",
   },
 });
 

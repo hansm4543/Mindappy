@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 import React from "react";
 import { useState, useEffect } from "react";
 import { Dropdown } from "react-native-element-dropdown";
+import { backgroundColor } from "./../../constants";
 
 const Notifications = ({ navigation, route }) => {
   const expoPushToken = route?.params?.expoPushToken;
@@ -14,6 +15,8 @@ const Notifications = ({ navigation, route }) => {
   useEffect(() => {
     //console.log("refresh");
   }, [expoPushToken]); // Only re-run the effect if [in brackets] changes
+
+  //onPress={() => Alert.alert('Simple Button pressed')}
 
   const getHours = () => {
     let hours = [];
@@ -41,7 +44,7 @@ const Notifications = ({ navigation, route }) => {
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "lightblue",
+          backgroundColor: backgroundColor,
         }}
       ></View>
     );
@@ -53,7 +56,7 @@ const Notifications = ({ navigation, route }) => {
         flex: 1,
         justifyContent: "space-between",
         alignItems: "center",
-        backgroundColor: "lightblue",
+        backgroundColor: backgroundColor,
         paddingTop: "30%",
         paddingBottom: "40%",
       }}
@@ -69,19 +72,39 @@ const Notifications = ({ navigation, route }) => {
           {englishMode ? "Short term notificatons" : "Lühiajalised teavitused"}
         </Text>
 
-        <Button
+        {/* <Button
           title={englishMode ? "15 minutes" : "15 minutit"}
           onPress={async () => {
             await schedulePushNotification("minutes");
           }}
-        />
+        /> */}
+        <TouchableOpacity
+          style={styles.buttonOutside}
+          onPress={async () => {
+            await schedulePushNotification("minutes");
+          }}
+        >
+          <Text style={styles.buttonText}>
+            {englishMode ? "15 minutes" : "15 minutit"}
+          </Text>
+        </TouchableOpacity>
 
-        <Button
+        {/* <Button
           title={englishMode ? "1 Hour" : "1 tund"}
           onPress={async () => {
             await schedulePushNotification("hour");
           }}
-        />
+        /> */}
+        <TouchableOpacity
+          style={styles.buttonOutside}
+          onPress={async () => {
+            await schedulePushNotification("hour");
+          }}
+        >
+          <Text style={styles.buttonText}>
+            {englishMode ? "1 Hour" : "1 tund"}
+          </Text>
+        </TouchableOpacity>
       </View>
       <View
         style={{
@@ -121,7 +144,7 @@ const Notifications = ({ navigation, route }) => {
             }}
           />
         </View>
-        <Button
+        {/* <Button
           title={englishMode ? "Notify me" : "Teavita mind"}
           onPress={async () => {
             await schedulePushNotification(
@@ -133,7 +156,24 @@ const Notifications = ({ navigation, route }) => {
               englishMode
             );
           }}
-        />
+        /> */}
+        <TouchableOpacity
+          style={styles.buttonOutside}
+          onPress={async () => {
+            await schedulePushNotification(
+              "timed",
+              {
+                hour: hour,
+                minute: minute,
+              },
+              englishMode
+            );
+          }}
+        >
+          <Text style={styles.buttonText}>
+            {englishMode ? "Notify me" : "Teavita mind"}
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -145,7 +185,7 @@ const styles = StyleSheet.create({
   dropdown: {
     height: 50,
     width: 60,
-    borderColor: "black",
+    borderColor: "#a9a9a9",
     borderWidth: 0.5,
     borderRadius: 8,
     paddingHorizontal: 8,
@@ -154,5 +194,19 @@ const styles = StyleSheet.create({
   font: {
     fontSize: 25,
     marginHorizontal: 10,
+  },
+  buttonOutside: {
+    alignItems: "center",
+    backgroundColor: "#FFF",
+    padding: 10,
+    width: 200,
+    borderRadius: 10,
+    borderColor: "#a9a9a9",
+    borderWidth: 2,
+  },
+  buttonText: {
+    fontWeight: "bold",
+    fontSize: 17,
+    color: "#838383",
   },
 });

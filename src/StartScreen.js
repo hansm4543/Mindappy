@@ -1,5 +1,13 @@
 import React from "react";
-import { Button, View, Image, Text, StyleSheet } from "react-native";
+import {
+  Button,
+  View,
+  Image,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
+import { backgroundColor } from "./../constants";
 
 function StartScreen({ navigation, route }) {
   const englishMode = route?.params?.englishMode;
@@ -22,7 +30,7 @@ function StartScreen({ navigation, route }) {
         flex: 1,
         alignItems: "center",
         justifyContent: "space-evenly",
-        backgroundColor: "lightblue",
+        backgroundColor: backgroundColor,
         width: "100%",
         height: "100%",
         paddingBottom: 100,
@@ -58,20 +66,36 @@ function StartScreen({ navigation, route }) {
 
       <View style={{ alignItems: "center" }}>
         <Text style={[styles.font]}>{englishMode ? "Language" : "Keel"}</Text>
-        <Button
+        {/* <Button
           title={englishMode ? "English" : "Eesti"}
           onPress={() => changeLanguage()}
-        />
+        /> */}
+        <TouchableOpacity
+          style={styles.buttonOutsideWhite}
+          onPress={() => changeLanguage()}
+        >
+          <Text style={styles.buttonTextGray}>
+            {englishMode ? "English" : "Eesti"}
+          </Text>
+        </TouchableOpacity>
       </View>
       {/* 
       <Button
         title={englishMode ? "Answered" : "Vastatud"}
         onPress={() => storeData("@answered", { value: false })}
       /> */}
-      <Button
+      {/* <Button
         title={englishMode ? "Enter The Application" : "Sisenen rakendusse"}
         onPress={() => navigation.navigate("QuestionScreen")}
-      />
+      /> */}
+      <TouchableOpacity
+        style={styles.buttonOutsideGray}
+        onPress={() => navigation.navigate("QuestionScreen")}
+      >
+        <Text style={styles.buttonTextWhite}>
+          {englishMode ? "Enter The Application" : "Sisenen rakendusse"}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -82,5 +106,31 @@ const styles = StyleSheet.create({
   font: {
     fontSize: 25,
     marginBottom: 5,
+  },
+  buttonOutsideGray: {
+    alignItems: "center",
+    backgroundColor: "#838383",
+    padding: 10,
+    width: 200,
+    borderRadius: 10,
+  },
+  buttonTextWhite: {
+    fontWeight: "bold",
+    fontSize: 17,
+    color: "#FFF",
+  },
+  buttonOutsideWhite: {
+    alignItems: "center",
+    backgroundColor: "#FFF",
+    padding: 10,
+    width: 200,
+    borderRadius: 10,
+    borderColor: "#a9a9a9",
+    borderWidth: 2,
+  },
+  buttonTextGray: {
+    fontWeight: "bold",
+    fontSize: 17,
+    color: "#838383",
   },
 });
