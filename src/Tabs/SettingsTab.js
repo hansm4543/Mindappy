@@ -6,6 +6,7 @@ const Settings = ({ navigation, route }) => {
   const setEnglishMode = route?.params?.setEnglishMode;
   const setEnglishModeBottomTab = route?.params?.setEnglishModeBottomTab;
   const storeData = route?.params?.storeData;
+  const schedulePushNotification = route?.params?.schedulePushNotification;
 
   const changeLanguage = () => {
     storeData("@englishMode", { value: englishModeBottomTab ? false : true });
@@ -27,25 +28,43 @@ const Settings = ({ navigation, route }) => {
       <View
         style={{
           flex: 1,
-          justifyContent: "center",
+          justifyContent: "space-evenly",
           alignItems: "center",
           backgroundColor: backgroundColor,
-          marginVertical: "30%",
+          marginVertical: "60%",
         }}
       >
-        <Text style={[styles.font]}>
-          {englishModeBottomTab ? "Language" : "Keel"}
-        </Text>
-        {/* <Button
+        <View
+          style={{
+            flex: 1,
+            alignItems: "center",
+            backgroundColor: backgroundColor,
+          }}
+        >
+          <Text style={[styles.font]}>
+            {englishModeBottomTab ? "Language" : "Keel"}
+          </Text>
+          {/* <Button
           title={englishModeBottomTab ? "English" : "Eesti"}
           onPress={() => changeLanguage()}
         /> */}
+          <TouchableOpacity
+            style={styles.buttonOutside}
+            onPress={() => changeLanguage()}
+          >
+            <Text style={styles.buttonText}>
+              {englishModeBottomTab ? "English" : "Eesti"}
+            </Text>
+          </TouchableOpacity>
+        </View>
         <TouchableOpacity
           style={styles.buttonOutside}
-          onPress={() => changeLanguage()}
+          onPress={async () => {
+            await schedulePushNotification(undefined, englishModeBottomTab);
+          }}
         >
           <Text style={styles.buttonText}>
-            {englishModeBottomTab ? "English" : "Eesti"}
+            {englishModeBottomTab ? "Test Notification" : "Test Teade"}
           </Text>
         </TouchableOpacity>
       </View>

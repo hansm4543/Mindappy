@@ -102,8 +102,8 @@ function App() {
   }, [isLoading]); // Only re-run the effect if [in brackets] changes
 
   //top one is correct to get into question screen after first startup
-  let isFirstStartUp = questionsAnswered ? true : false;
-  //let isFirstStartUp = questionsAnswered ? false : true;
+  //let isFirstStartUp = questionsAnswered ? true : false;
+  let isFirstStartUp = questionsAnswered ? false : true;
   const InitialRoute = isFirstStartUp ? "Bottomtab" : "StartScreen";
 
   //if (isLoading || (expoPushToken === "" && Platform.OS !== "web")) {
@@ -176,9 +176,24 @@ function App() {
 
 async function schedulePushNotification(
   version = undefined,
-  time,
-  englishMode
+  englishMode,
+  time
 ) {
+  function incrementDate(dateInput, increment) {
+    var dateFormatTotime = new Date(dateInput);
+    var increasedDate = new Date(
+      dateFormatTotime.getTime() + increment * 86400000
+    );
+    return increasedDate;
+  }
+  // var dateWith31 = new Date("2017-08-31");
+  // var dateWith29 = new Date("2016-02-29");
+
+  var amountToIncreaseWith = 1; //Edit this number to required input
+  // console.log(incrementDate(dateWith31, amountToIncreaseWith));
+  // console.log(incrementDate(dateWith29, amountToIncreaseWith));
+  let newDate = new Date(Date.now());
+
   let text = englishMode ? "Time to exercise" : "Harjutuste tegemise aeg";
   if (version === "minutes") {
     await Notifications.scheduleNotificationAsync({
@@ -203,16 +218,16 @@ async function schedulePushNotification(
       },
     });
   } else if (version === "timed") {
-    await Notifications.scheduleNotificationAsync({
+    let timedDate = incrementDate(newDate, amountToIncreaseWith);
+    timedDate.setMinutes(parseInt(time.minute));
+    timedDate.setHours(parseInt(time.hour));
+
+    await Notifications.DailyNotificationTrigger({
       content: {
         title: text,
         body: "Mindappy",
       },
-      trigger: {
-        hour: parseInt(time.hour, 10),
-        minute: parseInt(time.minute, 10),
-        repeats: false,
-      },
+      trigger: timedDate,
     });
   } else {
     await Notifications.scheduleNotificationAsync({
@@ -226,6 +241,7 @@ async function schedulePushNotification(
       },
     });
   }
+  console.log(await Notifications.getAllScheduledNotificationsAsync());
 }
 
 async function registerForPushNotificationsAsync() {

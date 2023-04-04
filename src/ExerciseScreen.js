@@ -8,7 +8,7 @@ import {
   Text,
 } from "react-native";
 import React, { useState } from "react";
-import { ExercisesList } from "./../exerciseData";
+import { ExercisesList, ExercisesListEng } from "./../exerciseData";
 import SingleExercise from "./SingleExercise";
 import { backgroundColor } from "./../constants";
 
@@ -28,7 +28,11 @@ const ExerciseScreen = ({ navigation, route }) => {
         }}
       >
         <SingleExercise
-          exerciseData={ExercisesList[exerciseIndex]}
+          exerciseData={
+            englishMode
+              ? ExercisesListEng[exerciseIndex]
+              : ExercisesList[exerciseIndex]
+          }
         ></SingleExercise>
       </ScrollView>
       <View style={{ height: 100 }}>

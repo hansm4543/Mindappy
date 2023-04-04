@@ -64,6 +64,7 @@ function BottomTabNavigator({ navigation, route }) {
           setEnglishMode,
           setEnglishModeBottomTab,
           storeData,
+          schedulePushNotification,
         }}
       />
       <Tab.Screen

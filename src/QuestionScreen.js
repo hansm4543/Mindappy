@@ -6,6 +6,7 @@ import {
   StyleSheet,
   ScrollView,
   SafeAreaView,
+  TouchableOpacity,
 } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 import { Divider } from "@rneui/themed";
@@ -245,11 +246,20 @@ function QuestionScreen({ navigation, route }) {
               },
             ]}
           >
-            <Button
+            {/* <Button
               //color="#841584"
               title={englishMode ? "Submit Answers" : "Lõpetan küsimustiku"}
               onPress={() => submit()}
-            />
+            /> */}
+
+            <TouchableOpacity
+              style={styles.buttonOutside}
+              onPress={() => submit()}
+            >
+              <Text style={styles.buttonText}>
+                {englishMode ? "Submit Answers" : "Lõpetan küsimustiku"}
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
@@ -320,5 +330,19 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 70,
     width: "100%",
+  },
+  buttonOutside: {
+    alignItems: "center",
+    backgroundColor: "#838383",
+    padding: 10,
+    width: 200,
+    borderRadius: 10,
+    //borderColor: "#a9a9a9",
+    //borderWidth: 2,
+  },
+  buttonText: {
+    fontWeight: "bold",
+    fontSize: 17,
+    color: "#FFF",
   },
 });

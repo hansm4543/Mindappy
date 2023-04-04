@@ -37,18 +37,18 @@ const Notifications = ({ navigation, route }) => {
   const minutesList = getMinutes();
   const hoursList = getHours();
 
-  if (expoPushToken === "") {
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: backgroundColor,
-        }}
-      ></View>
-    );
-  }
+  // if (expoPushToken === "") {
+  //   return (
+  //     <View
+  //       style={{
+  //         flex: 1,
+  //         justifyContent: "center",
+  //         alignItems: "center",
+  //         backgroundColor: backgroundColor,
+  //       }}
+  //     ></View>
+  //   );
+  // }
 
   return (
     <View
@@ -78,10 +78,11 @@ const Notifications = ({ navigation, route }) => {
             await schedulePushNotification("minutes");
           }}
         /> */}
+
         <TouchableOpacity
           style={styles.buttonOutside}
           onPress={async () => {
-            await schedulePushNotification("minutes");
+            await schedulePushNotification("minutes", englishMode);
           }}
         >
           <Text style={styles.buttonText}>
@@ -98,7 +99,7 @@ const Notifications = ({ navigation, route }) => {
         <TouchableOpacity
           style={styles.buttonOutside}
           onPress={async () => {
-            await schedulePushNotification("hour");
+            await schedulePushNotification("hour", englishMode);
           }}
         >
           <Text style={styles.buttonText}>
@@ -160,14 +161,10 @@ const Notifications = ({ navigation, route }) => {
         <TouchableOpacity
           style={styles.buttonOutside}
           onPress={async () => {
-            await schedulePushNotification(
-              "timed",
-              {
-                hour: hour,
-                minute: minute,
-              },
-              englishMode
-            );
+            await schedulePushNotification("timed", englishMode, {
+              hour: hour,
+              minute: minute,
+            });
           }}
         >
           <Text style={styles.buttonText}>

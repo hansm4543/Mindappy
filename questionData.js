@@ -32,10 +32,10 @@ export const answersEst = [
   ],
   [
     { label: "Üldse ei nõustu", value: "1" },
-    { label: "Ei nõustu", value: "2" },
-    { label: "Ei nõustu ega ole nõus", value: "3" },
-    { label: "Nõustun", value: "4" },
-    { label: "Täielikult nõustun", value: "5" },
+    { label: "Pigem ei ole nõus", value: "2" },
+    { label: "Nõustun osaliselt", value: "3" },
+    { label: "Pigem olen nõus", value: "4" },
+    { label: "Olen täiesti nõus", value: "5" },
   ],
   [
     { label: "Ebapiisav", value: "1" },
@@ -72,8 +72,8 @@ export const questionsListEng = [
     1,
   ],
   [
-    "My ability to express my concerns about someone’s behavior without blaming them are",
-    2,
+    "If someone behaves in a way that concerns me, I know how to talk to them about it without blaming them.",
+    1,
   ],
   [
     "It is easy for me to understand what other people are feeling based on their body language and the situation.",
@@ -89,46 +89,49 @@ export const questionsListEng = [
 ];
 
 export const questionsListEst = [
-  ["Ma mõistan, mis emotsioone ma praegu tunnen.", 0],
+  ["Ma tunnen ära, millist emotsiooni ma hetkel kogen.", 0],
   [
-    "Kui kogen ebamugavaid emotsioone lihtsalt sellepärast, et olen väsinud, näljane või haige, olen teadlik, et see on minu enesetunde algpõhjus.",
+    "Kui ma kogen ebamugavaid tundeid vaid seetõttu, et olen väsinud, näljane või haige, siis olen ma teadlik, et just see on minu enesetunde põhjus.",
     0,
   ],
   [
-    "Kui kogen tugevaid emotsioone, siis tean, millised minu väärtushinnangud ja mõtted neid vallandavad.",
+    "Kui ma kogen tugevaid tundeid, siis ma tean millised minu väärtused ja mõtted neid tundeid käivitavad.",
     0,
   ],
   [
-    "Kui mind valdavad tugevad ebamugavad emotsioonid, tean, mida teha, et end paremini tunda.",
+    "Kui ma kogen tugevaid ebamugavaid tundeid siis ma tean kuidas oma enesetunnet parandada.",
     1,
   ],
   [
-    "Kui mul on vaja midagi ära teha, suudan tähelepanu kõrvale juhtida ja keskenduda olulisele.",
+    "Kui mul on vaja midagi ära teha, siis ma suudan vältida segajaid, mis mu tähelepanu kõrvale juhiksid  ja keskenduda sellele, mis on oluline.",
     0,
   ],
   [
-    "Kui sean endale eesmärgi, ei loobu ma selle nimel töötamisest kergesti.",
+    "Kui ma püstitan endale eesmärgi, siis ei anna ma selle poole püüeldes lihtsalt alla.",
     1,
   ],
-  ["Märkan, kui keegi grupist välja jääb.", 0],
-  ["Kui näen kedagi kannatamas, tunnen tema vastu empaatiat.", 0],
+  ["Ma märkan kui keegi grupist on välja jäetud.", 0],
+  ["Kui ma näen kedagi kannatamas, tunnen ma neile kaasa.", 0],
   [
-    "Kui kohtun inimestega, kellel on minu omast erinev taust, märkan ja hindan neid erinevusi.",
+    "Kui ma kohtan inimesi, kellel on minust erinev taust, siis ma märkan ja hindan neid erinevusi.",
     1,
   ],
   [
-    "Minu võime väljendada oma muret kellegi käitumise pärast teda süüdistamata.",
-    2,
-  ],
-  [
-    "Mul on nende kehakeele ja olukorra põhjal lihtne aru saada, mida teised inimesed tunnevad.",
+    "Kui keegi käitub nii, et see tekitab minus ebamugavust, siis ma oskan nendega selles rääkida ilma süüdistamata.",
     1,
   ],
-  ["Mul on lihtne erinevate inimestega koostööd teha.", 1],
-  ["Otsuste tegemisel võtan arvesse oma otsuste laiemat mõju.", 0],
   [
-    "Kui mul on probleem, on mul lihtne kindlaks teha, milliseid samme selle lahendamiseks tegema pean.",
+    "Mul on lihtne mõista kehakeele ja situatsiooni põhjal, mida teised inimesed tunnevad.",
     1,
   ],
-  ["Olen teadlik sellest, kuidas mu tegevus mõjutab inimesi minu ümber.", 0],
+  ["Mul on lihtne teha koostööd erinevate inimestega.", 1],
+  ["Otsusteid tehes võttan arvesse nende laiemat mõju.", 0],
+  [
+    "Kui mul on mõni probleem, siis mul on lihtne tuvastada selle lahendamiseks vajalikke samme.",
+    1,
+  ],
+  [
+    "Ma olen teadlik sellest, kuidas minu teod mõjutavad minu ümber olevaid inimesi.",
+    0,
+  ],
 ];

@@ -100,7 +100,7 @@ export const ExercisesList = [
         {
           fontWeight: "normal",
           type: "text",
-          data: "värinad või vappumine",
+          data: "pearinglus",
         },
       ],
     },
@@ -406,6 +406,420 @@ export const ExercisesList = [
           fontWeight: "normal",
           type: "text",
           data: "Korrake 10x.",
+        },
+      ],
+    },
+  ],
+];
+
+export const ExercisesListEng = [
+  [
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Feelings are a nice and natural part of life. However, every person has situations where some feeling is too strong.\n",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Discuss with your partner whether and what situations occur in your life where strong feelings conflict with a goal that is important to you. For example, you want to give a good presentation or do well in an exam or test, but you have anxiety. You are nervous about work and don't want to take it out on your loved ones at home.\n",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Discuss what situations in your life right now motivate you the most to deal with your feelings better.",
+    },
+  ],
+  [
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "As we mentioned in the previous lesson, even though feelings are a normal part of life, sometimes we have a need to silence a feeling that is too strong.\n",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "In order to manage your feelings, you must first learn to recognize them.\n",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Discuss with a partner what feelings people experience and how you know that you are feeling one or the other.\n",
+    },
+    {
+      fontWeight: "bold",
+      type: "text",
+      data: "Clue:",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "What role do thoughts play in the fact that we perceive a specific feeling as THAT feeling, what role do bodily sensations play?",
+    },
+  ],
+  [
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "In order to better manage our feelings, we need to learn to recognize them. In the following lessons we will take six basic feelings and discuss how YOU recognize them.\n",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Each person is different, so discuss with a partner what happens in YOUR body when you feel angry.\n",
+    },
+    {
+      fontWeight: "bold",
+      type: "text",
+      data: "Clue:",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Some symptoms when feelings of anger:",
+    },
+    {
+      type: "list",
+      data: [
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "hands tense",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "face tense",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "breathing faster",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "the heart beats faster",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "feeling hot or sweaty",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "tremors or shaking",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "dizziness",
+        },
+      ],
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "What signs do you have the same or different? What are the stronger signals for you than others?",
+    },
+  ],
+  [
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "How do you know you are happy? Discuss with a partner what happens in YOUR body when you feel joy?\n",
+    },
+    {
+      fontWeight: "bold",
+      type: "text",
+      data: "Clue:",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Some symptoms when feeling joyful:",
+    },
+    {
+      type: "list",
+      data: [
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "feeling light and excited",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "a lot of energy",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "feeling of warmth in the body",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "tingling sensation in the body",
+        },
+      ],
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "What signs do you have the same or different? What are the stronger signals for you than others?\n",
+    },
+  ],
+  [
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "We all feel sad from time to time. But everyone can perceive sadness in a different way. Discuss with a partner what happens in YOUR body when you feel sad.\n",
+    },
+    {
+      fontWeight: "bold",
+      type: "text",
+      data: "Clue:",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Some symptoms when feeling sadness:",
+    },
+    {
+      type: "list",
+      data: [
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "tight feeling in the throat",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "chest pain or tightness",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "tingling behind the eyes",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "tears in eyes",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "feeling of coldness over the body",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "heaviness in the arms or legs",
+        },
+      ],
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "What signs do you have the same or different? What are the stronger signals for you than others?\n",
+    },
+  ],
+  [
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "All kinds of surprises can happen in our life. Some things that surprise us are happy, some are sad, some are irritating. Surprise is good to know because it signals to us that there was something new and unexpected for us, and this in turn can trigger other strong feelings.\n",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Discuss with a partner what happens in YOUR body when you feel surprised\n",
+    },
+    {
+      fontWeight: "bold",
+      type: "text",
+      data: "Clue:",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Some people have the following symptoms when they experience surprise:",
+    },
+    {
+      type: "list",
+      data: [
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "eyebrows go up",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "eyes widen",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "mouth drops open",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "breathing in air quickly (gasps)",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "focusing attention on the thing that surprised",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "hands move in front of the face",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "head and/or body retracts",
+        },
+      ],
+    },
+  ],
+  [
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Disgust probably originally evolved in humans to keep us away from potential dangers, such as stale food, which is not good for us. But then its use became more widespread, for example, cultural things, like someone's political views, can provoke a disgusted reaction in us 😊\n",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Discuss with a partner what happens in YOUR body when you feel disgusted\n",
+    },
+    {
+      fontWeight: "bold",
+      type: "text",
+      data: "Clue:",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Some people have the following symptoms when they experience disgust:",
+    },
+    {
+      type: "list",
+      data: [
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "nose wrinkled",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "eyebrows turned down",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "the upper lip is drawn in the shape of an upside-down U and the lower lip slightly outwards",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "voicing",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "the body turns away from the source of disgust",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "discomfort/nausea in the mouth, throat and/or stomach",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "nausea may cause you to cover your mouth and/or bloat your body",
+        },
+      ],
+    },
+  ],
+  [
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Sometimes our desires and goals and feelings conflict with each other. For example, I want to be a good companion, but I tend to say bad things to others in a fit of anger. In this case, it's good if I can calm myself down.\n",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "One simple, scientifically proven method to calm the intensity of feelings is abdominal breathing, that is, breathing very deeply and slowly so that the stomach moves with it. Practice belly breathing for 5 minutes with a partner. You can make it fun in the following two ways.\n",
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Method 1. (especially good with children):",
+    },
+    {
+      type: "list",
+      data: [
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "Take a nice object: a teddy bear/pillow, etc., that can fit on your stomach.",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "Lie together on your back on the floor.",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "Place the object on your stomach.",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "Give the object a nice slow 'elevator ride' with your stomach: when you inhale, the object moves up on your stomach, when you exhale, it moves down.",
+        },
+      ],
+    },
+    {
+      fontWeight: "normal",
+      type: "text",
+      data: "Method 2.:",
+    },
+    {
+      type: "list",
+      data: [
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "Prepare a cup of pleasantly smelling hot drink (tea, cocoa).",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "Before drinking, inhale deeply and slowly to smell the drink.",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "Then slowly blow this air out through your mouth to cool the drink.",
+        },
+        {
+          fontWeight: "normal",
+          type: "text",
+          data: "Repeat 10x.",
         },
       ],
     },
