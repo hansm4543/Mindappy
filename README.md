@@ -7,7 +7,11 @@ Main Idea:
 
 Make a Social and Emotional learning application
 </br>
+
+</br>
 The purpose of the application is to show people exercises that they have to go through in real life, and through these exercises it is possible for users to manage their emotions when necessary. The exercises and the original idea of the created application come from Liisa Ringo's master's thesis and Liisa Ringo's own experience working in this field.
+
+</br>
 
 ## Application functional details:
 ### Determining SE learning skill level
@@ -36,6 +40,7 @@ The purpose of the application is to show people exercises that they have to go 
 
 ## How to boot the application:
 ### For Android:
+* Download APK from link below and install it on your device
 * https://drive.google.com/drive/folders/12bLIRf376BIuQ2EsjaIC95rRKIVLhXtq?usp=sharing
 
 ### For PC
@@ -46,16 +51,34 @@ The purpose of the application is to show people exercises that they have to go 
 ## Images of the application
 * Start Page
 ![Source code](screenshots/StartPage.jpg)
+
+</br>
+
 * Home Menu
 ![Source code](screenshots/HomeMenu.jpg)
+
+</br>
+
 * Notification Menu
 ![Source code](screenshots/NotificationMenu.jpg)
+
+</br>
+
 * Settings Menu
 ![Source code](screenshots/SettingsMenu.jpg)
+
+</br>
+
 * Assessment Page
 ![Source code](screenshots/AssessmentPage.jpg)
+
+</br>
+
 * Exercise Page
 ![Source code](screenshots/ExercisePage.jpg)
+
+</br>
+
 * Results Page
 ![Source code](screenshots/ResultsPage.jpg)
 
