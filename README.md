@@ -13,7 +13,7 @@ The purpose of the application is to show people exercises that they have to go 
 
 </br>
 
-## Application functional details:
+## Application functional details
 ### Determining SE learning skill level
 * Choose answers to questions from the drop-down menu
 * Move to the next question by scrolling down
@@ -38,8 +38,8 @@ The purpose of the application is to show people exercises that they have to go 
 </br>
 
 
-## How to boot the application:
-### For Android:
+## How to boot the application
+### For Android
 * Download APK from link below and install it on your device
 * https://drive.google.com/drive/folders/12bLIRf376BIuQ2EsjaIC95rRKIVLhXtq?usp=sharing
 
