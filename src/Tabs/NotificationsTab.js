@@ -69,7 +69,7 @@ const Notifications = ({ navigation, route }) => {
         }}
       >
         <Text style={[styles.font]}>
-          {englishMode ? "Short term notificatons" : "Lühiajalised teavitused"}
+          {englishMode ? "Short term notifications" : "Lühiajalised teavitused"}
         </Text>
 
         {/* <Button
