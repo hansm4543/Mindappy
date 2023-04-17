@@ -22,8 +22,10 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: "bold",
     fontSize: 16,
+    color: "white",
   },
   normal: {
     fontSize: 16,
+    color: "white",
   },
 });

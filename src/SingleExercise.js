@@ -25,13 +25,15 @@ export default SingleExercise;
 const styles = StyleSheet.create({
   bold: {
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 20,
     flex: 1,
     flexWrap: "wrap",
+    color: "white",
   },
   normal: {
-    fontSize: 16,
+    fontSize: 18,
     flex: 1,
     flexWrap: "wrap",
+    color: "white",
   },
 });
