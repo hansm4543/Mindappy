@@ -54,98 +54,113 @@ const Notifications = ({ navigation, route }) => {
     <View
       style={{
         flex: 1,
-        justifyContent: "space-between",
+        //justifyContent: "space-between",
+        justifyContent: "center",
         alignItems: "center",
         backgroundColor: backgroundColor,
-        paddingTop: "30%",
-        paddingBottom: "40%",
+        //paddingTop: "30%",
+        //paddingBottom: "40%",
       }}
     >
       <View
         style={{
-          flex: 1,
-          alignItems: "center",
           justifyContent: "space-evenly",
+          alignItems: "center",
+          backgroundColor: backgroundColor,
+          height: 400,
         }}
       >
-        <Text style={[styles.font]}>
-          {englishMode ? "Short term notifications" : "Lühiajalised teavitused"}
-        </Text>
+        <View
+          style={{
+            height: 150,
+            //flex: 1,
+            alignItems: "center",
+            alignContent: "center",
+            justifyContent: "space-evenly",
+            //justifyContent: "space-between",
+          }}
+        >
+          <Text style={[styles.font]}>
+            {englishMode
+              ? "Short term notifications"
+              : "Lühiajalised teavitused"}
+          </Text>
 
-        {/* <Button
+          {/* <Button
           title={englishMode ? "15 minutes" : "15 minutit"}
           onPress={async () => {
             await schedulePushNotification("minutes");
           }}
         /> */}
 
-        <TouchableOpacity
-          style={styles.buttonOutside}
-          onPress={async () => {
-            await schedulePushNotification("minutes", englishMode);
-          }}
-        >
-          <Text style={styles.buttonText}>
-            {englishMode ? "15 minutes" : "15 minutit"}
-          </Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonOutside}
+            onPress={async () => {
+              await schedulePushNotification("minutes", englishMode);
+            }}
+          >
+            <Text style={styles.buttonText}>
+              {englishMode ? "15 minutes" : "15 minutit"}
+            </Text>
+          </TouchableOpacity>
 
-        {/* <Button
+          {/* <Button
           title={englishMode ? "1 Hour" : "1 tund"}
           onPress={async () => {
             await schedulePushNotification("hour");
           }}
         /> */}
-        <TouchableOpacity
-          style={styles.buttonOutside}
-          onPress={async () => {
-            await schedulePushNotification("hour", englishMode);
+          <TouchableOpacity
+            style={styles.buttonOutside}
+            onPress={async () => {
+              await schedulePushNotification("hour", englishMode);
+            }}
+          >
+            <Text style={styles.buttonText}>
+              {englishMode ? "1 Hour" : "1 tund"}
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View
+          style={{
+            //flex: 1,
+            alignItems: "center",
+            justifyContent: "space-evenly",
+            height: 150,
           }}
         >
-          <Text style={styles.buttonText}>
-            {englishMode ? "1 Hour" : "1 tund"}
+          <Text style={[styles.font]}>
+            {englishMode ? "Timed notification" : "Määratud ajaline teavitus"}
           </Text>
-        </TouchableOpacity>
-      </View>
-      <View
-        style={{
-          flex: 1,
-          alignItems: "center",
-          justifyContent: "space-evenly",
-        }}
-      >
-        <Text style={[styles.font]}>
-          {englishMode ? "Timed notification" : "Määratud ajaline teavitus"}
-        </Text>
 
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Dropdown
-            style={[styles.dropdown]}
-            data={hoursList}
-            maxHeight={200}
-            labelField="label"
-            valueField="value"
-            placeholder={"..."}
-            value={hour}
-            onChange={(item) => {
-              setHour(item.value);
-            }}
-          />
-          <Text style={[styles.font]}>{":"}</Text>
-          <Dropdown
-            style={[styles.dropdown]}
-            data={minutesList}
-            maxHeight={200}
-            labelField="label"
-            valueField="value"
-            placeholder={"..."}
-            value={minute}
-            onChange={(item) => {
-              setMinute(item.value);
-            }}
-          />
-        </View>
-        {/* <Button
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Dropdown
+              style={[styles.dropdown]}
+              data={hoursList}
+              maxHeight={200}
+              labelField="label"
+              valueField="value"
+              placeholder={"..."}
+              value={hour}
+              onChange={(item) => {
+                setHour(item.value);
+              }}
+            />
+            <Text style={[styles.font]}>{":"}</Text>
+            <Dropdown
+              style={[styles.dropdown]}
+              data={minutesList}
+              maxHeight={200}
+              labelField="label"
+              valueField="value"
+              placeholder={"..."}
+              value={minute}
+              onChange={(item) => {
+                setMinute(item.value);
+              }}
+            />
+          </View>
+          {/* <Button
           title={englishMode ? "Notify me" : "Teavita mind"}
           onPress={async () => {
             await schedulePushNotification(
@@ -158,19 +173,20 @@ const Notifications = ({ navigation, route }) => {
             );
           }}
         /> */}
-        <TouchableOpacity
-          style={styles.buttonOutside}
-          onPress={async () => {
-            await schedulePushNotification("timed", englishMode, {
-              hour: hour,
-              minute: minute,
-            });
-          }}
-        >
-          <Text style={styles.buttonText}>
-            {englishMode ? "Notify me" : "Teavita mind"}
-          </Text>
-        </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buttonOutside}
+            onPress={async () => {
+              await schedulePushNotification("timed", englishMode, {
+                hour: hour,
+                minute: minute,
+              });
+            }}
+          >
+            <Text style={styles.buttonText}>
+              {englishMode ? "Notify me" : "Teavita mind"}
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -191,6 +207,7 @@ const styles = StyleSheet.create({
   font: {
     fontSize: 25,
     marginHorizontal: 10,
+    textAlign: "center",
   },
   buttonOutside: {
     alignItems: "center",

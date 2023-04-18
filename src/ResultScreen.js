@@ -114,153 +114,171 @@ const ResultScreen = ({ navigation, route }) => {
             </Text>
           </TouchableOpacity>
 
-          <StackedBarChart
-            //verticalLabelRotation={-60} //Degree to rotate
-            //horizontalLabelRotation={-60} //Degree to rotate
-            //xLabelsOffset={20}
-            //showLegend={0}
-            withVerticalLabels={true}
-            withHorizontalLabels={true}
-            data={{
-              labels: englishMode
-                ? [
-                    "Self-awareness",
-                    "Self-management",
-                    "Social awareness",
-                    "Relationship skills",
-                    "Responsibility",
-                  ]
-                : [
-                    "Eneseteadvus",
-                    "Enesejuhtimine",
-                    "Sotsiaalne teadlikkus",
-                    "Suhteoskused",
-                    "Vastutustundlikus",
-                  ],
-              //legend: ["L1", "L2", "L3"],
-              // data: [
-              //   [10, 10, 80],
-              //   [30, 30],
-              //   [30, 30],
-              //   [30, 30],
-              //   [30, 30],
-              // ],
-
-              data:
-                answersCurrent !== undefined
+          <View
+            style={{
+              //flex: 1,
+              //alignItems: "center",
+              //justifyContent: "space-evenly",
+              //height: 150,
+              marginTop: 75,
+              marginBottom: 75,
+              borderColor: "white",
+              borderRadius: 50,
+              backgroundColor: "white",
+              width: Dimensions.get("window").width - 30,
+              height: 700,
+            }}
+          >
+            <StackedBarChart
+              //verticalLabelRotation={-60} //Degree to rotate
+              //horizontalLabelRotation={-60} //Degree to rotate
+              //xLabelsOffset={20}
+              //showLegend={0}
+              withVerticalLabels={true}
+              withHorizontalLabels={true}
+              data={{
+                labels: englishMode
                   ? [
-                      [
-                        answersInitial.firstSection.value,
-                        answersCurrent.firstSection.value -
-                          answersInitial.firstSection.value,
-                        100 -
-                          answersInitial.firstSection.value -
-                          (answersCurrent.firstSection.value -
-                            answersInitial.firstSection.value),
-                      ],
-                      [
-                        answersInitial.secondSection.value,
-                        answersCurrent.secondSection.value -
-                          answersInitial.secondSection.value,
-                        100 -
-                          answersInitial.secondSection.value -
-                          (answersCurrent.secondSection.value -
-                            answersInitial.secondSection.value),
-                      ],
-                      [
-                        answersInitial.thirdSection.value,
-                        answersCurrent.thirdSection.value -
-                          answersInitial.thirdSection.value,
-                        100 -
-                          answersInitial.thirdSection.value -
-                          (answersCurrent.thirdSection.value -
-                            answersInitial.thirdSection.value),
-                      ],
-                      [
-                        answersInitial.forthSection.value,
-                        answersCurrent.forthSection.value -
-                          answersInitial.forthSection.value,
-                        100 -
-                          answersInitial.forthSection.value -
-                          (answersCurrent.forthSection.value -
-                            answersInitial.forthSection.value),
-                      ],
-                      [
-                        answersInitial.fifthSection.value,
-                        answersCurrent.fifthSection.value -
-                          answersInitial.fifthSection.value,
-                        100 -
-                          answersInitial.fifthSection.value -
-                          (answersCurrent.fifthSection.value -
-                            answersInitial.fifthSection.value),
-                      ],
+                      "Self-awareness",
+                      "Self-management",
+                      "Social awareness",
+                      "Relationship skills",
+                      "Responsibility",
                     ]
                   : [
-                      [
-                        answersInitial.firstSection.value,
-                        100 - answersInitial.firstSection.value,
-                      ],
-                      [
-                        answersInitial.secondSection.value,
-                        100 - answersInitial.secondSection.value,
-                      ],
-                      [
-                        answersInitial.thirdSection.value,
-                        100 - answersInitial.thirdSection.value,
-                      ],
-                      [
-                        answersInitial.forthSection.value,
-                        100 - answersInitial.forthSection.value,
-                      ],
-                      [
-                        answersInitial.fifthSection.value,
-                        100 - answersInitial.fifthSection.value,
-                      ],
+                      "Eneseteadvus",
+                      "Enesejuhtimine",
+                      "Sotsiaalne teadlikkus",
+                      "Suhteoskused",
+                      "Vastutustundlikus",
                     ],
-              barColors:
-                answersCurrent !== undefined
-                  ? ["lightblue", "lightgreen", "rgba(100, 100, 100, 0)"]
-                  : ["lightblue", "rgba(100, 100, 100, 0)"],
-            }}
-            width={Dimensions.get("window").width - 25}
-            height={600}
-            chartConfig={{
-              propsForLabels: {
-                style: {
-                  opacity: 0,
+                //legend: ["L1", "L2", "L3"],
+                // data: [
+                //   [10, 10, 80],
+                //   [30, 30],
+                //   [30, 30],
+                //   [30, 30],
+                //   [30, 30],
+                // ],
+
+                data:
+                  answersCurrent !== undefined
+                    ? [
+                        [
+                          answersInitial.firstSection.value,
+                          answersCurrent.firstSection.value -
+                            answersInitial.firstSection.value,
+                          100 -
+                            answersInitial.firstSection.value -
+                            (answersCurrent.firstSection.value -
+                              answersInitial.firstSection.value),
+                        ],
+                        [
+                          answersInitial.secondSection.value,
+                          answersCurrent.secondSection.value -
+                            answersInitial.secondSection.value,
+                          100 -
+                            answersInitial.secondSection.value -
+                            (answersCurrent.secondSection.value -
+                              answersInitial.secondSection.value),
+                        ],
+                        [
+                          answersInitial.thirdSection.value,
+                          answersCurrent.thirdSection.value -
+                            answersInitial.thirdSection.value,
+                          100 -
+                            answersInitial.thirdSection.value -
+                            (answersCurrent.thirdSection.value -
+                              answersInitial.thirdSection.value),
+                        ],
+                        [
+                          answersInitial.forthSection.value,
+                          answersCurrent.forthSection.value -
+                            answersInitial.forthSection.value,
+                          100 -
+                            answersInitial.forthSection.value -
+                            (answersCurrent.forthSection.value -
+                              answersInitial.forthSection.value),
+                        ],
+                        [
+                          answersInitial.fifthSection.value,
+                          answersCurrent.fifthSection.value -
+                            answersInitial.fifthSection.value,
+                          100 -
+                            answersInitial.fifthSection.value -
+                            (answersCurrent.fifthSection.value -
+                              answersInitial.fifthSection.value),
+                        ],
+                      ]
+                    : [
+                        [
+                          answersInitial.firstSection.value,
+                          100 - answersInitial.firstSection.value,
+                        ],
+                        [
+                          answersInitial.secondSection.value,
+                          100 - answersInitial.secondSection.value,
+                        ],
+                        [
+                          answersInitial.thirdSection.value,
+                          100 - answersInitial.thirdSection.value,
+                        ],
+                        [
+                          answersInitial.forthSection.value,
+                          100 - answersInitial.forthSection.value,
+                        ],
+                        [
+                          answersInitial.fifthSection.value,
+                          100 - answersInitial.fifthSection.value,
+                        ],
+                      ],
+                barColors:
+                  answersCurrent !== undefined
+                    ? ["lightblue", "lightgreen", "rgba(100, 100, 100, 0)"]
+                    : ["lightblue", "rgba(100, 100, 100, 0)"],
+              }}
+              width={Dimensions.get("window").width - 80}
+              height={600}
+              chartConfig={{
+                propsForLabels: {
+                  style: {
+                    opacity: 0,
+                  },
                 },
-              },
-              propsForHorizontalLabels: {
-                style: {
-                  opacity: 1,
-                  fontWeight: "bold",
+                propsForHorizontalLabels: {
+                  style: {
+                    opacity: 1,
+                    fontWeight: "bold",
+                  },
                 },
-              },
-              backgroundColor: "white",
-              backgroundGradientFrom: "white",
-              backgroundGradientTo: "white",
-              decimalPlaces: 0,
-              color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-              style: {
+                backgroundColor: "white",
+                backgroundGradientFrom: "white",
+                backgroundGradientTo: "white",
+                decimalPlaces: 0,
+                color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                style: {
+                  borderRadius: 16,
+                },
+                propsForVerticalLabels: {
+                  rotation: -45,
+                  translateX: -30,
+                  translateY: 20,
+                  style: {
+                    opacity: 1,
+                    fontWeight: "bold",
+                  },
+                },
+                // barRadius: 100,
+              }}
+              style={{
+                //marginVertical: 50,
+                //paddingHorizontal: 10,
+                paddingTop: 50,
+                paddingLeft: 20,
                 borderRadius: 16,
-              },
-              propsForVerticalLabels: {
-                rotation: -45,
-                translateX: -30,
-                translateY: 20,
-                style: {
-                  opacity: 1,
-                  fontWeight: "bold",
-                },
-              },
-              // barRadius: 100,
-            }}
-            style={{
-              marginVertical: 50,
-              paddingHorizontal: 50,
-              borderRadius: 16,
-            }}
-          />
+              }}
+            />
+          </View>
 
           {/* <Button
             title={englishMode ? "Go back" : "Tagasi"}

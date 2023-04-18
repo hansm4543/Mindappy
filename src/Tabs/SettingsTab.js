@@ -23,22 +23,21 @@ const Settings = ({ navigation, route }) => {
       style={{
         flex: 1,
         backgroundColor: backgroundColor,
+        justifyContent: "center",
       }}
     >
       <View
         style={{
-          flex: 1,
           justifyContent: "space-evenly",
           alignItems: "center",
           backgroundColor: backgroundColor,
-          marginVertical: "60%",
+          height: 400,
         }}
       >
         <View
           style={{
-            flex: 1,
+            justifyContent: "center",
             alignItems: "center",
-            backgroundColor: backgroundColor,
           }}
         >
           <Text style={[styles.font]}>
