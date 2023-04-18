@@ -64,38 +64,47 @@ function StartScreen({ navigation, route }) {
         </View>
       </View>
 
-      <View style={{ alignItems: "center" }}>
-        <Text style={[styles.font]}>{englishMode ? "Language" : "Keel"}</Text>
-        {/* <Button
+      <View
+        style={{
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          //backgroundColor: backgroundColor,
+          height: 200,
+        }}
+      >
+        <View style={{ alignItems: "center" }}>
+          <Text style={[styles.font]}>{englishMode ? "Language" : "Keel"}</Text>
+          {/* <Button
           title={englishMode ? "English" : "Eesti"}
           onPress={() => changeLanguage()}
         /> */}
-        <TouchableOpacity
-          style={styles.buttonOutsideWhite}
-          onPress={() => changeLanguage()}
-        >
-          <Text style={styles.buttonTextGray}>
-            {englishMode ? "English" : "Eesti"}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      {/* 
+          <TouchableOpacity
+            style={styles.buttonOutsideWhite}
+            onPress={() => changeLanguage()}
+          >
+            <Text style={styles.buttonTextGray}>
+              {englishMode ? "English" : "Eesti"}
+            </Text>
+          </TouchableOpacity>
+        </View>
+        {/* 
       <Button
         title={englishMode ? "Answered" : "Vastatud"}
         onPress={() => storeData("@answered", { value: false })}
       /> */}
-      {/* <Button
+        {/* <Button
         title={englishMode ? "Enter The Application" : "Sisenen rakendusse"}
         onPress={() => navigation.navigate("QuestionScreen")}
       /> */}
-      <TouchableOpacity
-        style={styles.buttonOutsideGray}
-        onPress={() => navigation.navigate("QuestionScreen")}
-      >
-        <Text style={styles.buttonTextWhite}>
-          {englishMode ? "Enter The Application" : "Sisenen rakendusse"}
-        </Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonOutsideGray}
+          onPress={() => navigation.navigate("QuestionScreen")}
+        >
+          <Text style={styles.buttonTextWhite}>
+            {englishMode ? "Enter The Application" : "Sisenen rakendusse"}
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
