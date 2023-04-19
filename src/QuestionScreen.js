@@ -7,6 +7,7 @@ import {
   ScrollView,
   SafeAreaView,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 import { Divider } from "@rneui/themed";
@@ -29,6 +30,7 @@ function QuestionScreen({ navigation, route }) {
   const answers = englishMode ? answersEng : answersEst;
 
   const questionsList = englishMode ? questionsListEng : questionsListEst;
+  const [alertDone, setAlertDone] = useState(questionsAnswered);
 
   const [valueArr, setValueArr] = useState([
     null,
@@ -189,6 +191,17 @@ function QuestionScreen({ navigation, route }) {
   };
 
   //console.log(valueArr);
+  if (!alertDone) {
+    Alert.alert(
+      englishMode
+        ? "SE level determination questionnaire"
+        : "SE taseme määramise küsimustik",
+      englishMode
+        ? "In order for you to progress to social and emotional (SE) learning, the app must first assign you an initial SE learning level. Please complete the following questionnaire so that the application can determine your initial social and emotional level."
+        : "Selleks, et saaksite liikuda sotsiaalse ja emotsionaalse (SE) õppe juurde, tuleb rakendusel kõigepealt määrata teile algne SE õppe tase. Palun täitke ära järgnev küsimustik, et rakendus saaks kindlaks teha teie algse sotsiaalse ja emotsionaalse taseme.",
+      [{ text: "OK", onPress: () => setAlertDone(true) }]
+    );
+  }
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
