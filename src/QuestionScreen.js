@@ -193,6 +193,31 @@ function QuestionScreen({ navigation, route }) {
   return (
     <SafeAreaView style={styles.safeAreaView}>
       <ScrollView style={styles.scrollView}>
+        {questionsAnswered ? (
+          <View
+            style={{
+              alignItems: "center",
+              marginTop: 30,
+              marginBottom: 30,
+            }}
+          >
+            <TouchableOpacity
+              style={styles.buttonOutside}
+              onPress={() =>
+                navigation.reset({
+                  routes: [{ name: "ResultScreen" }],
+                })
+              }
+            >
+              <Text style={styles.buttonText}>
+                {englishMode ? "Cancel answering" : "Loobu vastamisest"}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <View></View>
+        )}
+
         {questionsList.map((questionData, i) => (
           <View
             style={
@@ -242,6 +267,7 @@ function QuestionScreen({ navigation, route }) {
                 width: "50%",
                 height: "30%",
                 alignSelf: "center",
+                alignItems: "center",
                 marginBottom: 50,
               },
             ]}
@@ -341,6 +367,7 @@ const styles = StyleSheet.create({
     //borderWidth: 2,
   },
   buttonText: {
+    textAlign: "center",
     fontWeight: "bold",
     fontSize: 17,
     color: "#FFF",
